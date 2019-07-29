@@ -48,6 +48,17 @@ class HomePage(webapp2.RequestHandler):
 
 class AuditoryPage(webapp2.RequestHandler):
     def get(self):
+        khan= 'http://www.khanacademy.org/api/v1/topictree'
+
+
+
+
+
+
+
+
+
+
         quiz_template = jinja_env.get_template('templates/aural.html')
 
 class WritingPage(webapp2.RequestHandler):
