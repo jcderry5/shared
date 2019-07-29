@@ -12,3 +12,17 @@ the_jinja_env = jinja2.Environment(
 class MainPage(webapp2.RequestHandler):
     def get(self):
         print("KMA")
+
+class QuizPage(webapp2.RequestHandler):
+    def get(self):
+        print("Testing Text")
+
+class LearnPage(webapp2.RequestHandler):
+    def get(self):
+        print("Testing Text")
+
+app = webapp2.WSGIApplication([
+    ('/', MainPage),
+    ('/Quiz',QuizPage),
+    ('/Learn', LearnPage)
+], debug=True)
