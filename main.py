@@ -50,6 +50,8 @@ class AuditoryPage(webapp2.RequestHandler):
     def get(self):
         khan= 'http://www.khanacademy.org/api/v1/topictree'
         result = urlfetch.fetch(khan).content
+        result_as_json = json.loads(result)
+        url = result_as_json[0]['url']
 
 
 
