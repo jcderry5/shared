@@ -13,7 +13,6 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/home.html')
 
-        print("KMA")
 
 class QuizPage(webapp2.RequestHandler):
     def get(self):
@@ -32,5 +31,5 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Quiz',QuizPage),
     ('/Visual', VisualPage),
-    ('Profile', ProfilePage)
+    ('/Profile', ProfilePage)
 ], debug=True)
