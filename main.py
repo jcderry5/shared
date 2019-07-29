@@ -3,7 +3,7 @@ import jinja2
 import os
 import json
 
-from google.appengine.api import users
+from google.appengine.api import users, urlfetch
 from model import User
 from seed_user_db import seed_data
 
@@ -48,6 +48,17 @@ class HomePage(webapp2.RequestHandler):
 
 class AuditoryPage(webapp2.RequestHandler):
     def get(self):
+        khan= 'http://www.khanacademy.org/api/v1/topictree'
+        result = urlfetch.fetch(khan).content
+
+
+
+
+
+
+
+
+
         quiz_template = jinja_env.get_template('templates/aural.html')
 
 class WritingPage(webapp2.RequestHandler):
