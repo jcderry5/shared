@@ -71,6 +71,8 @@ class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
         seed_data()
 
+
+
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/Quiz',QuizPage),
