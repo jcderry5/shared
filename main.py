@@ -19,9 +19,9 @@ jinja_env = jinja2.Environment(
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/home.html')
+
         user = users.get_current_user()
         if user:
-             print("User exists")
              # Create the sign out link (for later use).
              signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
              # If the user is logged in, get their email address.
@@ -107,7 +107,23 @@ class QuizPage(webapp2.RequestHandler):
                 a_learn += 1
             elif value == "r":
                 r_learn += 1
-        if v_learn > a_learn and v_learn >r_learn:
+        if v_learn == a_learn and v_learn > r_learn:
+            h2j_user.learning_style = "Visual"
+            h2j_user.put()
+            return webapp2.redirect("/Visual")
+
+        elif a_learn == r_learn and a_learn > v_learn:
+            h2j_user.learning_style = "Auditory"
+            h2j_user.put()
+            return webapp2.redirect("/Auditory")
+
+        elif r_learn == v_learn and r_learn > a_learn:
+            h2j_user.learning_style = "Reading/Writing"
+            h2j_user.put()
+            return webapp2.redirect("/Writing")
+
+
+        elif v_learn > a_learn and v_learn >r_learn:
             #use is a visual learner
             h2j_user.learning_style = "Visual"
             h2j_user.put()
