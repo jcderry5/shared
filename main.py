@@ -78,6 +78,7 @@ class QuizPage(webapp2.RequestHandler):
 class VisualPage(webapp2.RequestHandler):
     def get(self):
         visual_template = jinja_env.get_template('templates/visual.html')
+        self.response.write(visual_template.render())
 
 class ProfilePage(webapp2.RequestHandler):
     def get(self):
@@ -100,6 +101,7 @@ class AuditoryPage(webapp2.RequestHandler):
 class WritingPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/writing.html')
+        self.response.write(writing_template.render())
 
 
 
