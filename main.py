@@ -17,25 +17,25 @@ jinja_env = jinja2.Environment(
 
 
 class HomePage(webapp2.RequestHandler):
-
     def get(self):
         home_template = jinja_env.get_template('templates/home.html')
 
         user = users.get_current_user()
         if user:
-          # Create the sign out link (for later use).
-          signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
-          # If the user is logged in, get their email address.
-          email_address = user.nickname()
-          # Then query Datastore to see if a user with this email has registered as
-          # a H2JUser before.
-          h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
-          # If the query is successful, the variable will have a user in it, so the
-
-          home_dict = {
-              "h2j_user" : h2j_user
-          }
-          self.response.write(home_template.render(home_dict))
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+        else:
+            h2j_user = ""
+        home_dict = {
+            "h2j_user" : h2j_user
+        }
+        self.response.write(home_template.render(home_dict))
 
 
     def post(self):
