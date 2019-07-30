@@ -46,6 +46,7 @@ class HomePage(webapp2.RequestHandler):
 
 
     def post(self):
+
         if self.request.get("first_name") and self.request.get("last_name"):
             # This will run if we have fill in the form but haven't put into db
             temp_username = self.request.get("username")
