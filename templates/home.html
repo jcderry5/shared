@@ -33,19 +33,31 @@
       a:hover{
         color: white;
       }
+      #sign_in{
+        color: #4D6D8F;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <div class="navigation_bar">
-      <h3><a href="home.html">Home Page</a></h3>
-      <h3><a href="quiz.html">Learn</a></h3>
-      <h3><a href="about.html">About</a></h3>
-      <h3><a href="profile.html">Profile</a></h3>
+      <h3><a href="/">Home Page</a></h3>
+      <h3><a href="/Quiz">Learn</a></h3>
+      <h3><a href="/About">About</a></h3>
+      <h3><a href="/Profile">Profile</a></h3>
     </div>
     <div class="sign_in">
-      This is the sign in bar
+      <h2 id="sign_in">
+        Register
+      </h2>
+
       {% if h2j_user %}
-        <h3>You have already registered</h3>
+        <h3 style="text-align: center">
+          You have already registered
+          <br>
+          <br>.
+          Go to Quiz Page to learn your learning style
+      </h3>
       {%else%}
       <h1>Welcome to our site, %s!  Please sign up! </h1>
         <form method="post" action="/">
