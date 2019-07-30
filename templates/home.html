@@ -82,8 +82,11 @@
       {% elif learning_style == "Auditory"%}
       <h3><a href="/Auditory">Learn</a></h3>
 
-      {%else%}
+      {% elif learning_style == "Writing"%}
       <h3><a href="/Writing">Learn</a></h3>
+
+      {%else%}
+      <h3><a href="/Quiz">Quiz</a></h3>
 
       {%endif%}
 
