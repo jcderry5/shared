@@ -75,7 +75,18 @@
 
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
-      <h3><a href="/Quiz">Quiz</a></h3>
+
+      {%if learning_style == "Visual" %}
+      <h3><a href="/Visual">Learn</a></h3>
+
+      {% elif learning_style == "Auditory"%}
+      <h3><a href="/Auditory">Learn</a></h3>
+
+      {%else%}
+      <h3><a href="/Writing">Learn</a></h3>
+
+      {%endif%}
+
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
@@ -87,12 +98,12 @@
       </h2>
 
       {% if h2j_user %}
-        <h3 style="text-align: center; ">
-          You have already registered
+        <h3 style="text-align: center; font-size: 25px;">
+          Thank you for registering!
           <br>
           <br>
           Your learning style is: {{learning_style}}
-      </h3>
+        </h3>
       {%else%}
         <form method="post" action="/" style="text-align: center" autocomplete="off">
           <h3 class="titlebox">First Name:</h4>

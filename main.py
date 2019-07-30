@@ -30,13 +30,17 @@ class HomePage(webapp2.RequestHandler):
              # a H2JUser before.
              h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
              # If the query is successful, the variable will have a user in it, so the
-        else:
-            h2j_user = ""
-        home_dict = {
-            "h2j_user" : h2j_user,
-            "learning_style" : h2j_user.learning_style
-        }
-        self.response.write(home_template.render(home_dict))
+
+             h2j_ls = " "
+
+             if h2j_user:
+                 h2j_ls = h2j_user.learning_style
+
+             home_dict = {
+                "h2j_user" : h2j_user,
+                "learning_style" : h2j_ls
+             }
+             self.response.write(home_template.render(home_dict))
 
 
     def post(self):
@@ -50,6 +54,7 @@ class HomePage(webapp2.RequestHandler):
             temp_email_address = user.nickname()
             H2JUser(username=temp_username, password=temp_password, email=temp_email_address,
                     first_name=temp_first_name, last_name=temp_last_name).put()
+
             return webapp2.redirect("/Quiz")
 
 
@@ -88,18 +93,18 @@ class QuizPage(webapp2.RequestHandler):
                 r_learn += 1
         if v_learn > a_learn and v_learn >r_learn:
             #use is a visual learner
-            h2j_user.learning_style = "visual"
+            h2j_user.learning_style = "Visual"
             h2j_user.put()
             # self.response.write(jinja_env.get_template('templates/visual.html').render())
             return webapp2.redirect("/Visual")
         elif a_learn > v_learn and a_learn > r_learn:
             #use is a aural learner
-            h2j_user.learning_style = "auditory"
+            h2j_user.learning_style = "Auditory"
             h2j_user.put()
             return webapp2.redirect("/Auditory")
         elif r_learn > v_learn and r_learn > a_learn:
             #use is a reading/writing learner
-            h2j_user.learning_style = "reading"
+            h2j_user.learning_style = "Reading/Writing"
             h2j_user.put()
             return webapp2.redirect("/Writing")
 
