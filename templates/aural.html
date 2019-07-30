@@ -66,66 +66,53 @@ body {
     $("#mlink").click(function() {
       $("#math").show();
     });
-  });
-  $(document).ready(function(){
     $("#mscience").click(function() {
       $("#math, .calc, .algebra, .geometry, .pre").hide();
       $("#science").show();
-    });
   });
-  $(document).ready(function(){
-    $(".calc").hide();
-    $("#math").change(function() {
-      if($( "select option:selected" ).val() == "calc")
-        {
-          $(".calc").show();
-        }
-        else {
-          $(".calc").hide();
-        }
-    });
+  $(".calc").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "calc")
+      {
+        $(".calc").show();
+      }
+      else {
+        $(".calc").hide();
+      }
   });
-  $(document).ready(function(){
-    $(".algebra").hide();
-    $("#math").change(function() {
-      if($( "select option:selected" ).val() == "alg")
-        {
-          $(".algebra").show();
-        }
-        else {
-          $(".algebra").hide();
-        }
-    });
+  $(".algebra").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "alg")
+      {
+        $(".algebra").show();
+      }
+      else {
+        $(".algebra").hide();
+      }
   });
-  $(document).ready(function(){
-    $(".geometry").hide();
-    $("#math").change(function() {
-      if($( "select option:selected" ).val() == "geo")
-        {
-          $(".geometry").show();
-        }
-        else {
-          $(".geometry").hide();
-        }
-    });
+  $(".geometry").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "geo")
+      {
+        $(".geometry").show();
+      }
+      else {
+        $(".geometry").hide();
+      }
   });
-  $(document).ready(function(){
-    $(".pre").hide();
-    $("#math").change(function() {
-      if($( "select option:selected" ).val() == "precal")
-        {
-          $(".pre").show();
-        }
-        else {
-          $(".pre").hide();
-        }
+  $(".pre").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "precal")
+      {
+        $(".pre").show();
+      }
+      else {
+        $(".pre").hide();
+              }
     });
-  });
-
-  $(document).ready(function(){
     $(".chem").hide();
     $("#science").change(function() {
-      if($( "select option:selected" ).val() == "chem")
+      if($( "#science option:selected" ).val() == "chem")
         {
           $(".chem").show();
         }
@@ -133,8 +120,12 @@ body {
           $(".chem").hide();
         }
     });
-  });
 
+
+
+
+
+});
 </script>
 
 
@@ -215,10 +206,11 @@ Learn History
  <select id="science" name="science">
    <option value="select">Select Science Topic</option>
     <option value="bio">Biology</option>
-    <option id="chem" value="chem">Chemistry</option>
-    <option id="phy" value="phy">Physics</option>
-    <option id="anatomy" value="anatomy">Anatomy</option>
+    <option  value="chem">Chemistry</option>
+    <option  value="phy">Physics</option>
+    <option  value="anatomy">Anatomy</option>
   </select>
+
 </div>
 <br><br><br>
 <div class="hey">
