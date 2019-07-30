@@ -5,11 +5,13 @@
     <title> H2J </title>
     <style media="screen">
       body{
-        background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
+        background-image: url("images/bg_img.jpeg");
         background-color: #EDC7B7;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       .navigation_bar{
-        background-color: #AC3B61;
+        background-color: #EEE2DC;
         position: fixed;
         top: 0;
         left: 0;
@@ -17,27 +19,33 @@
         font-size: 20px;
         display: flex;
         justify-content: space-around;
-        box-shadow: 0px 2px #401624;
+        box-shadow: 0px 2px #94888C;
+
+
       }
       a{
         text-decoration: none;
-        color: black;
+        color: #AC3B61;
         text-shadow: 0.5px 0.5px;
         padding: 10px;
-        border: 2px solid #AC3B61;
+        /* border: 2px solid #AC3B61; */
         border-radius: 10px;
       }
       .sign_in{
         height: 600px;
-        background-color: #BAB2B5;
+        background-color: #EEE2DC;
         width: 500px;
-        margin-left: 750px;
-        margin-top: 200px; /* FIXME: Needs to move with the window */
 
         border-style: solid;
-        border-radius: 5px;
+        border-radius: 15px;
         border-width: thick;
-        border-color: #123C69;
+        border-color: #AC3B61;
+        position: absolute;
+        left: 35%;
+        top: 20%;
+        /* top: 50%; */
+        /* transform: translate(-50%, -50%);
+        transform-origin: center center; */
 
       }
       a:hover{
@@ -45,9 +53,9 @@
         background-color: #C16C89;
       }
       #sign_in{
-        color: #4D6D8F;
+        color: #AC3B61;
         text-align: center;
-        font-size: 45px;
+        font-size: 60px;
       }
 
       }
@@ -62,20 +70,21 @@
       <h3><a href="/Profile">Profile</a></h3>
     </div>
     <br><br><br>
+
     <div class="sign_in">
       <h2 id="sign_in">
         Register
       </h2>
 
       {% if h2j_user %}
-        <h3 style="text-align: center">
+        <h3 style="text-align: center; ">
           You have already registered
           <br>
           <br>
           Your learning style is: (Hein will insert variable in)
       </h3>
       {%else%}
-      <h3 style="text-align: center; text-decoration: underline">Sign Up Below </h3>
+      <h3 style="text-align: center; text-decoration: underline; font-size: 25px">Sign Up Below </h3>
         <form method="post" action="/" style="text-align: center">
           <h4 style="margin-bottom: 5px">First Name:</h4>
           <input type="text" name="first_name">
