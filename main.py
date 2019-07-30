@@ -62,9 +62,18 @@ class HomePage(webapp2.RequestHandler):
 
 
 class QuizPage(webapp2.RequestHandler):
+    def post(self):
+        quiz_template = jinja_env.get_template('templates/quiz.html')
+        que_1 = self.request.get("q-1")
+        que_2 = self.request.get("q-2")
+        que_3 = self.request.get("q-3")
+        que_4 = self.request.get("q-4")
+        que_5 = self.request.get("q-5")
+
     def get(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
         self.response.write(quiz_template.render())
+
 
 class VisualPage(webapp2.RequestHandler):
     def get(self):
