@@ -20,7 +20,7 @@
         display: flex;
         justify-content: space-around;
         box-shadow: 0px 2px #94888C;
-
+        opacity: .95;
 
       }
       a{
@@ -39,7 +39,7 @@
         border-style: solid;
         border-radius: 15px;
         border-width: thick;
-        border-color: #AC3B61;
+        border-color: #C16C89;
         position: absolute;
         left: 35%;
         top: 20%;
@@ -57,6 +57,16 @@
         text-align: center;
         font-size: 60px;
       }
+      .textbox{
+        width: 75%;
+        font-size: 25px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        padding: 2px;
+      }
+      .titlebox{
+        margin-bottom: 5px;
+        font-size: 25px;
 
       }
     </style>
@@ -81,19 +91,21 @@
           You have already registered
           <br>
           <br>
-          Your learning style is: (Hein will insert variable in)
+          Your learning style is: {{learning_style}}
       </h3>
       {%else%}
-      <h3 style="text-align: center; text-decoration: underline; font-size: 25px">Sign Up Below </h3>
-        <form method="post" action="/" style="text-align: center">
-          <h4 style="margin-bottom: 5px">First Name:</h4>
-          <input type="text" name="first_name">
-          <h4 style="margin-bottom: 5px">Last Name:</h4>
-          <input type="text" name="last_name">
-          <h4 style="margin-bottom: 5px">User Name:</h4>
-          <input type="text" name="username">
-          <h4 style="margin-bottom: 5px">Password</h4>
-          <input type="text" name="password">
+        <form method="post" action="/" style="text-align: center" autocomplete="off">
+          <h3 class="titlebox">First Name:</h4>
+          <input class="textbox" type="text" name="first_name">
+
+          <h3 class="titlebox">Last Name:</h4>
+          <input class="textbox" type="text" name="last_name">
+
+          <h3 class="titlebox">User Name:</h4>
+          <input class="textbox" type="text" name="username">
+
+          <h3 class="titlebox">Password:</h4>
+          <input class="textbox" type="text" name="password">
           <br> <br>
           <input type="submit">
         </form><br><br>

@@ -33,7 +33,8 @@ class HomePage(webapp2.RequestHandler):
         else:
             h2j_user = ""
         home_dict = {
-            "h2j_user" : h2j_user
+            "h2j_user" : h2j_user,
+            "learning_style" : h2j_user.learning_style
         }
         self.response.write(home_template.render(home_dict))
 
@@ -64,11 +65,43 @@ class HomePage(webapp2.RequestHandler):
 class QuizPage(webapp2.RequestHandler):
     def post(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
-        que_1 = self.request.get("q-1")
-        que_2 = self.request.get("q-2")
-        que_3 = self.request.get("q-3")
-        que_4 = self.request.get("q-4")
-        que_5 = self.request.get("q-5")
+        user = users.get_current_user()
+        h2j_user = H2JUser.query().filter(H2JUser.email == user.nickname()).get()
+
+        v_learn = 0
+        a_learn = 0
+        r_learn = 0
+
+        all_ques = []
+        all_ques.append(self.request.get("q-1"))
+        all_ques.append(self.request.get("q-2"))
+        all_ques.append(self.request.get("q-3"))
+        all_ques.append(self.request.get("q-4"))
+        all_ques.append(self.request.get("q-5"))
+
+        for value in all_ques:
+            if value == "v":
+                v_learn += 1
+            elif value == "a":
+                a_learn += 1
+            elif value == "r":
+                r_learn += 1
+        if v_learn > a_learn and v_learn >r_learn:
+            #use is a visual learner
+            h2j_user.learning_style = "visual"
+            h2j_user.put()
+            # self.response.write(jinja_env.get_template('templates/visual.html').render())
+            return webapp2.redirect("/Visual")
+        elif a_learn > v_learn and a_learn > r_learn:
+            #use is a aural learner
+            h2j_user.learning_style = "auditory"
+            h2j_user.put()
+            return webapp2.redirect("/Auditory")
+        elif r_learn > v_learn and r_learn > a_learn:
+            #use is a reading/writing learner
+            h2j_user.learning_style = "reading"
+            h2j_user.put()
+            return webapp2.redirect("/Writing")
 
     def get(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
