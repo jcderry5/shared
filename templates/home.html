@@ -30,6 +30,9 @@
         border-width: thick;
         border-color: #123C69;
       }
+      a:hover{
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -41,6 +44,18 @@
     </div>
     <div class="sign_in">
       This is the sign in bar
+      {% if h2j_user %}
+        <h3>You have already registered</h3>
+      {%else%}
+      <h1>Welcome to our site, %s!  Please sign up! </h1>
+        <form method="post" action="/">
+          <input type="text" name="first_name">
+          <input type="text" name="last_name">
+          <input type="text" name="username">
+          <input type="text" name="password">
+          <input type="submit">
+        </form><br><br>
+      {%endif%}
     </div>
   </body>
 </html>

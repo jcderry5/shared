@@ -4,7 +4,7 @@ import os
 import json
 
 from google.appengine.api import users, urlfetch
-from model import User
+from model import H2JUser
 from seed_user_db import seed_data
 
 
@@ -15,7 +15,9 @@ jinja_env = jinja2.Environment(
     autoescape=True)
 
 
+
 class HomePage(webapp2.RequestHandler):
+
     def get(self):
         home_template = jinja_env.get_template('templates/home.html')
 
@@ -26,49 +28,44 @@ class HomePage(webapp2.RequestHandler):
           # If the user is logged in, get their email address.
           email_address = user.nickname()
           # Then query Datastore to see if a user with this email has registered as
-          # a CssiUser before.
-          cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
+          # a H2JUser before.
+          h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
           # If the query is successful, the variable will have a user in it, so the
           # following code will run.
-          if cssi_user:
-            self.response.write(
-              "Looks like you're registered. Thanks for using our site!")
-          # if the query wasn't successful, the variable will be empty, so this code
-          # will run instead.
-          else:
-            self.response.write(
-              "Looks like you aren't a CSSI User. Please sign up.")
+
+          home_dict = {
+              "h2j_user" : h2j_user
+          }
+          self.response.write(home_template.render(home_dict))
+
+
+    def post(self):
+        if self.request.get("first_name") and self.request.get("last_name"):
+            # This will run if we have fill in the form but haven't put into db
+            temp_username = self.request.get("username")
+            temp_password= self.request.get("password")
+            temp_first_name = self.request.get("first_name")
+            temp_last_name = self.request.get("last_name")
+            user = users.get_current_user()
+            temp_email_address = user.nickname()
+            H2JUser(username=temp_username, password=temp_password, email=temp_email_address,
+                    first_name=temp_first_name, last_name=temp_last_name).put()
+            return webapp2.redirect("/Quiz")
+
+
         else:
-      # This line creates a URL to log in with your Google Credentials.
-      login_url = users.create_login_url('/')
-      # This line uses string templating to create an anchor (link) element.
-      login_html_element = '<a href="%s">Sign in</a>' % login_url
-      # This line puts that URL on screen in a clickable anchor elememt.
-      self.response.write('Please log in.<b>' + login_html_element)
-
-class AuditoryPage(webapp2.RequestHandler):
-    def get(self):
-        khan= 'http://www.khanacademy.org/api/v1/topictree'
-        result = urlfetch.fetch(khan).content
-
-
-
-
-
-
-
-
-
-        quiz_template = jinja_env.get_template('templates/aural.html')
-
-class WritingPage(webapp2.RequestHandler):
-    def get(self):
-        quiz_template = jinja_env.get_template('templates/writing.html')
+          # This line creates a URL to log in with your Google Credentials.
+          login_url = users.create_login_url('/')
+          # This line uses string templating to create an anchor (link) element.
+          login_html_element = '<a href="%s">Sign in</a>' % login_url
+          # This line puts that URL on screen in a clickable anchor elememt.
+          self.response.write('Please log in.<b>' + login_html_element)
 
 
 class QuizPage(webapp2.RequestHandler):
     def get(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
+        self.response.write(quiz_template.render())
 
 class VisualPage(webapp2.RequestHandler):
     def get(self):
@@ -83,6 +80,21 @@ class LoadDataHandler(webapp2.RequestHandler):
         seed_data()
 
 
+class AuditoryPage(webapp2.RequestHandler):
+    def get(self):
+        khan= 'http://www.khanacademy.org/api/v1/topictree'
+        result = urlfetch.fetch(khan).content
+
+        quiz_template = jinja_env.get_template('templates/aural.html')
+
+class WritingPage(webapp2.RequestHandler):
+    def get(self):
+        quiz_template = jinja_env.get_template('templates/writing.html')
+
+
+
+
+
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
@@ -90,6 +102,6 @@ app = webapp2.WSGIApplication([
     ('/Visual', VisualPage),
     ('/Profile', ProfilePage),
     ('/seed-data', LoadDataHandler),
-    ('/Auditory', AuralPage),
+    ('/Auditory', AuditoryPage),
     ('/Writing', WritingPage)
 ], debug=True)
