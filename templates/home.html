@@ -5,14 +5,16 @@
     <title> H2J </title>
     <style media="screen">
       body{
-        background-color: #EDC7B7;
+        /* background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
+        background-color: #EDC7B7; */
       }
       .navigation_bar{
         background-color: #AC3B61;
-        height: 100px;
+        top: 0px;
         font-size: 20px;
         display: flex;
         justify-content: space-around;
+
       }
       a{
         text-decoration: none;
@@ -29,6 +31,7 @@
         border-radius: 5px;
         border-width: thick;
         border-color: #123C69;
+
       }
       a:hover{
         color: white;
@@ -37,12 +40,21 @@
         color: #4D6D8F;
         text-align: center;
       }
-      .main_img{
-        
+      .bg_img{
+        position: relative;
+        opacity: 0.65;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
+        height: 100%;
       }
     </style>
   </head>
   <body>
+    <div class="bg_img">
+
+    </div>
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
       <h3><a href="/Quiz">Quiz</a></h3>
