@@ -73,6 +73,7 @@ class QuizPage(webapp2.RequestHandler):
     def post(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
         user = users.get_current_user()
+        email_address = user.nickname()
         h2j_user = H2JUser.query().filter(H2JUser.email == user.nickname()).get()
 
         v_learn = 0

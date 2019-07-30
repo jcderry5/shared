@@ -67,7 +67,18 @@
       .titlebox{
         margin-bottom: 5px;
         font-size: 25px;
+      }
+      .button{
+        background-color: #AC3B61; /* Green */
+        border: solid #906674;
+        border-width: 1px;
+        border-radius: 10px;
+        color: #EDC7B7;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
 
+        font-size: 16px;
       }
     </style>
   </head>
@@ -118,10 +129,10 @@
           <h3 class="titlebox">User Name:</h4>
           <input class="textbox" type="text" name="username">
 
-          <h3 class="titlebox">Password:</h4>
+          <h3 class="titlebox" type="password">Password:</h4>
           <input class="textbox" type="text" name="password">
           <br> <br>
-          <input type="submit">
+          <input class="button" type="submit">
         </form><br><br>
       {%endif%}
     </div>
