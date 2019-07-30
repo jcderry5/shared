@@ -5,28 +5,35 @@
     <title> H2J </title>
     <style media="screen">
       body{
-        /* background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
-        background-color: #EDC7B7; */
+        background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
+        background-color: #EDC7B7;
       }
       .navigation_bar{
         background-color: #AC3B61;
-        top: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         font-size: 20px;
         display: flex;
         justify-content: space-around;
-
+        box-shadow: 0px 2px #401624;
       }
       a{
         text-decoration: none;
         color: black;
         text-shadow: 0.5px 0.5px;
+        padding: 10px;
+        border: 2px solid #AC3B61;
+        border-radius: 10px;
       }
       .sign_in{
-        height: 400px;
+        height: 600px;
         background-color: #BAB2B5;
-        width: 300px;
-        margin-left: 150px;
-        margin-top: 50px;
+        width: 500px;
+        margin-left: 750px;
+        margin-top: 200px; /* FIXME: Needs to move with the window */
+
         border-style: solid;
         border-radius: 5px;
         border-width: thick;
@@ -35,32 +42,26 @@
       }
       a:hover{
         color: white;
+        background-color: #C16C89;
       }
       #sign_in{
         color: #4D6D8F;
         text-align: center;
+        font-size: 45px;
       }
-      .bg_img{
-        position: relative;
-        opacity: 0.65;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260x");
-        height: 100%;
+
       }
     </style>
   </head>
   <body>
-    <div class="bg_img">
 
-    </div>
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
       <h3><a href="/Quiz">Quiz</a></h3>
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
+    <br><br><br>
     <div class="sign_in">
       <h2 id="sign_in">
         Register
