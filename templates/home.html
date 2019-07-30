@@ -118,6 +118,8 @@
           <br>
           Your learning style is: {{learning_style}}
         </h3>
+      {% elif login_url%}
+          <a href={{login_url}}>Click to Log in</a>
       {%else%}
         <form method="post" action="/" style="text-align: center" autocomplete="off">
           <h3 class="titlebox">First Name:</h4>
