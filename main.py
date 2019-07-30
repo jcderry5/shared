@@ -31,7 +31,6 @@ class HomePage(webapp2.RequestHandler):
           # a H2JUser before.
           h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
           # If the query is successful, the variable will have a user in it, so the
-          # following code will run.
 
           home_dict = {
               "h2j_user" : h2j_user
@@ -88,13 +87,14 @@ class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
         seed_data()
 
-
 class AuditoryPage(webapp2.RequestHandler):
     def get(self):
+        aural_template = jinja_env.get_template('templates/aural.html')
         khan= 'http://www.khanacademy.org/api/v1/topictree'
         result = urlfetch.fetch(khan).content
+        result_as_json = json.loads(result)
+        url = result_as_json[0]['url']
 
-        quiz_template = jinja_env.get_template('templates/aural.html')
 
 class WritingPage(webapp2.RequestHandler):
     def get(self):
