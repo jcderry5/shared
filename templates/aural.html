@@ -5,6 +5,18 @@
     <title>Verbal/Auditory Learning Style</title>
       <link rel="stylesheet" href="learningstyle.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#math").hide();
+    $("#mlink").click(function() {
+      $("#math").show();
+    });
+  });
+</script>
+
+
   </head>
   <body bgcolor="#EDC7B7">
 
@@ -47,7 +59,7 @@
 Learn Math
 <br><br>
 
-<img align="middle" height="150px" width="200px" align="center" src="https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2018/1-mathematics.jpg" alt="">
+<img id="mlink" align="middle" height="150px" width="200px" align="center" src="https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2018/1-mathematics.jpg" alt="">
 
 </div>
 <br>
@@ -63,10 +75,27 @@ Learn Science
 
 Learn History
 <br><br>
-<img align+"middle" height="150px" width="200px" align="center" src="http://study.com/cimages/course-image/mttc-history-practice-study-guide_171851_large.jpg" alt="">
+<img align="center" height="150px" width="200px" align="center" src="http://study.com/cimages/course-image/mttc-history-practice-study-guide_171851_large.jpg" alt="">
+
 
 </div>
 </div>
+<br><br>
+<div align="center" >
+
+<select id="math" name="math">
+   <option value="calc">Calculus</option>
+   <option value="alg">Algebra 2</option>
+   <option value="geometry">Geometry</option>
+   <option value="precal">Pre-calculus</option>
+ </select>
+</div>
+<br><br><br>
+<iframe width="420" height="315" src="{{url}}">
+</iframe>
+
+
+
   </body>
 
 </html>
