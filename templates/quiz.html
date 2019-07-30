@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-
+<form action="/Quiz" method="post">
     <div class="quiz_ques">
       <br>
         <h3> 1. When studying, I learn best when I: </h3>
@@ -48,7 +48,36 @@
           <label for="q-3r">Writing them on a piece of paper</label></p>
     </div>
 
+    <div class="quiz_ques">
+      <br>
+        <h3> 4. When facing a problem, I best solve by:  </h3>
+        <!-- v = visual  -->
+        <p><input id="q-4v" name="q-4" type="radio" value="v" />
+          <label for="q-4v">Drawing it out</label></p>
+        <!-- a = lecture/auditory -->
+        <p><input id="q-4a" name="q-4" type="radio" value="a" />
+          <label for="q-4a">Talking myself through it</label></p>
+        <!-- r = reading/writing -->
+        <p><input id="q-4r" name="q-4" type="radio" value="r" />
+          <label for="q-4r">Creating a draft and following myself through it</label></p>
+    </div>
+
+    <div class="quiz_ques">
+      <br>
+        <h3> 5. I prefer an instructor who:  </h3>
+        <!-- v = visual  -->
+        <p><input id="q-5v" name="q-5" type="radio" value="v" />
+          <label for="q-5v">Gives lectures using presentation tools</label></p>
+        <!-- a = lecture/auditory -->
+        <p><input id="q-5a" name="q-5" type="radio" value="a" />
+          <label for="q-5a">Shows videos like CrashCourse</label></p>
+        <!-- r = reading/writing -->
+        <p><input id="q-5r" name="q-5" type="radio" value="r" />
+          <label for="q-5r">Handout notes that contains annotated key words</label></p>
+    </div>
+
     <input type="submit" value="Submit">
+  </form>
 
   </body>
 </html>
