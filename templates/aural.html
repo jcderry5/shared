@@ -28,8 +28,7 @@
   justify-content: center;
 }
 .navigation_bar {
-  background-color: #AC3B61;
-  height: 100px;
+  background-color: #EEE2DC;
   position: fixed;
   top: 0;
   left: 0;
@@ -37,10 +36,15 @@
   font-size: 20px;
   display: flex;
   justify-content: space-around;
+  box-shadow: 0px 2px #94888C;
 }
 a{
   text-decoration: none;
-  color: black;
+  color: #AC3B61;
+  text-shadow: 0.5px 0.5px;
+  padding: 10px;
+  /* border: 2px solid #AC3B61; */
+  border-radius: 10px;
 }
 
 body {
@@ -58,6 +62,15 @@ body {
       $("#math").show();
     });
   });
+  $(document).ready(function(){
+    $(".calc").hide();
+    $("#math").change(function() {
+      if($( "select option:selected" ).val() == "calc")
+        {
+          $(".calc").show();
+        }
+    });
+  });
 
 </script>
 
@@ -66,12 +79,12 @@ body {
   <body >
 
     <div class="navigation_bar">
-      <h3><a href="home.html">Home Page</a></h3>
-      <h3><a href="quiz.html">Learn</a></h3>
-      <h3><a href="about.html">About</a></h3>
-      <h3><a href="profile.html">Profile</a></h3>
+      <h3><a href="/">Home Page</a></h3>
+      <h3><a href="/Quiz">Quiz</a></h3>
+      <h3><a href="/About">About</a></h3>
+      <h3><a href="/Profile">Profile</a></h3>
     </div>
-<br><br>
+<br><br><br><br>
 
 <h1 id="title" >You Got Verbal/Auditory Learning Style!</h1>
 
@@ -129,17 +142,23 @@ Learn History
 <div align="center" >
 
 <select id="math" name="math">
+  <option value="select">Select Math Topic</option>
    <option value="calc">Calculus</option>
-   <option value="alg">Algebra 2</option>
-   <option value="geometry">Geometry</option>
-   <option value="precal">Pre-calculus</option>
+   <option id="alg" value="alg">Algebra 2</option>
+   <option id="geo" value="geometry">Geometry</option>
+   <option id="pre" value="precal">Pre-calculus</option>
  </select>
 </div>
 <br><br><br>
-<iframe width="420" height="315" src="{{url}}">
+
+<iframe align="center" class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/rAof9Ld5sOg">
+</iframe>
+<br>
+<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/YTKQswb60Pw">
 </iframe>
 
-
+<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/YTKQswb60Pw">
+</iframe>
 
   </body>
 
