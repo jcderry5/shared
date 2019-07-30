@@ -20,7 +20,7 @@
         text-shadow: 0.5px 0.5px;
       }
       .sign_in{
-        height: 500px;
+        height: 400px;
         background-color: #BAB2B5;
         width: 300px;
         margin-left: 150px;
@@ -37,12 +37,15 @@
         color: #4D6D8F;
         text-align: center;
       }
+      .main_img{
+        
+      }
     </style>
   </head>
   <body>
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
-      <h3><a href="/Quiz">Learn</a></h3>
+      <h3><a href="/Quiz">Quiz</a></h3>
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
@@ -55,19 +58,27 @@
         <h3 style="text-align: center">
           You have already registered
           <br>
-          <br>.
-          Go to Quiz Page to learn your learning style
+          <br>
+          Your learning style is: (Hein will insert variable in)
       </h3>
       {%else%}
-      <h1>Welcome to our site, %s!  Please sign up! </h1>
-        <form method="post" action="/">
+      <h3 style="text-align: center; text-decoration: underline">Sign Up Below </h3>
+        <form method="post" action="/" style="text-align: center">
+          <h4 style="margin-bottom: 5px">First Name:</h4>
           <input type="text" name="first_name">
+          <h4 style="margin-bottom: 5px">Last Name:</h4>
           <input type="text" name="last_name">
+          <h4 style="margin-bottom: 5px">User Name:</h4>
           <input type="text" name="username">
+          <h4 style="margin-bottom: 5px">Password</h4>
           <input type="text" name="password">
+          <br> <br>
           <input type="submit">
         </form><br><br>
       {%endif%}
+    </div>
+    <div class="main_img">
+
     </div>
   </body>
 </html>
