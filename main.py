@@ -41,6 +41,8 @@ class HomePage(webapp2.RequestHandler):
                 "learning_style" : h2j_ls
              }
              self.response.write(home_template.render(home_dict))
+        else:
+            self.response.write(home_template.render())
 
 
     def post(self):
