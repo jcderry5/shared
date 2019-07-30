@@ -42,7 +42,18 @@ class HomePage(webapp2.RequestHandler):
              }
              self.response.write(home_template.render(home_dict))
         else:
-            self.response.write(home_template.render())
+            print("No user exists")
+            # This line creates a URL to log in with your Google Credentials.
+            login_url = users.create_login_url('/')
+            # This line uses string templating to create an anchor (link) element.
+            login_html_element = '<a href="%s">Sign in</a>' % login_url
+            # This line puts that URL on screen in a clickable anchor elememt.
+            self.response.write('Please log in.<b>' + login_html_element)
+
+            login_dict = {
+                "login_url" : login_url
+            }
+            self.response.write(home_template.render(login_dict))
 
 
     def post(self):
