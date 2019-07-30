@@ -38,6 +38,11 @@
   justify-content: space-around;
   box-shadow: 0px 2px #94888C;
 }
+.hey {
+  display: flex;
+  justify-content: center;
+
+}
 a{
   text-decoration: none;
   color: #AC3B61;
@@ -57,9 +62,15 @@ body {
 <script type="text/javascript">
 
   $(document).ready(function(){
-    $("#math").hide();
+    $("#math,#science").hide();
     $("#mlink").click(function() {
       $("#math").show();
+    });
+  });
+  $(document).ready(function(){
+    $("#mscience").click(function() {
+      $("#math, .calc, .algebra, .geometry, .pre").hide();
+      $("#science").show();
     });
   });
   $(document).ready(function(){
@@ -68,6 +79,58 @@ body {
       if($( "select option:selected" ).val() == "calc")
         {
           $(".calc").show();
+        }
+        else {
+          $(".calc").hide();
+        }
+    });
+  });
+  $(document).ready(function(){
+    $(".algebra").hide();
+    $("#math").change(function() {
+      if($( "select option:selected" ).val() == "alg")
+        {
+          $(".algebra").show();
+        }
+        else {
+          $(".algebra").hide();
+        }
+    });
+  });
+  $(document).ready(function(){
+    $(".geometry").hide();
+    $("#math").change(function() {
+      if($( "select option:selected" ).val() == "geo")
+        {
+          $(".geometry").show();
+        }
+        else {
+          $(".geometry").hide();
+        }
+    });
+  });
+  $(document).ready(function(){
+    $(".pre").hide();
+    $("#math").change(function() {
+      if($( "select option:selected" ).val() == "precal")
+        {
+          $(".pre").show();
+        }
+        else {
+          $(".pre").hide();
+        }
+    });
+  });
+
+  $(document).ready(function(){
+    $(".chem").hide();
+    $("#science").change(function() {
+      if($( "select option:selected" ).val() == "chem")
+        {
+          $(".chem").show();
+        }
+        else {
+          $(".chem").hide();
         }
     });
   });
@@ -122,7 +185,7 @@ Learn Math
 </div>
 <br>
 
-<div class="kewl">
+<div id="mscience" class="kewl">
 
 Learn Science
 <br><br>
@@ -145,20 +208,62 @@ Learn History
   <option value="select">Select Math Topic</option>
    <option value="calc">Calculus</option>
    <option id="alg" value="alg">Algebra 2</option>
-   <option id="geo" value="geometry">Geometry</option>
+   <option id="geo" value="geo">Geometry</option>
    <option id="pre" value="precal">Pre-calculus</option>
  </select>
+
+ <select id="science" name="science">
+   <option value="select">Select Science Topic</option>
+    <option value="bio">Biology</option>
+    <option id="chem" value="chem">Chemistry</option>
+    <option id="phy" value="phy">Physics</option>
+    <option id="anatomy" value="anatomy">Anatomy</option>
+  </select>
 </div>
 <br><br><br>
+<div class="hey">
 
-<iframe align="center" class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/rAof9Ld5sOg">
+<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/rAof9Ld5sOg">
 </iframe>
 <br>
 <iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/YTKQswb60Pw">
 </iframe>
-
-<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/YTKQswb60Pw">
+<br>
+<iframe class="algebra" id="vid" width="420" height="315" src="https://www.youtube.com/embed/etMK3xViMAc">
 </iframe>
+<br>
+<iframe class="algebra" id="vid" width="420" height="315" src="https://www.youtube.com/embed/C206SNAXDGE">
+</iframe>
+<br>
+<iframe class="geometry" id="vid" width="420" height="315" src="https://www.youtube.com/embed/w8wdKOsUD-4">
+</iframe>
+<br>
+<iframe class="geometry" id="vid" width="420" height="315" src="https://www.youtube.com/embed/JnLDmw3bbuw">
+</iframe>
+<br>
+<iframe class="pre" id="vid" width="420" height="315" src="https://www.youtube.com/embed/JrWJnwCMlP0">
+</iframe>
+<br>
+<iframe class="pre" id="vid" width="420" height="315" src="https://www.youtube.com/embed/q6vgQEZuNKk">
+</iframe>
+
+<iframe class="chem" id="vid" width="420" height="315" src="https://www.youtube.com/embed/eNsVaUCzvLA">
+</iframe>
+
+<iframe class="chem" id="vid" width="420" height="315" src="https://www.youtube.com/embed/bka20Q9TN6M">
+</iframe>
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
   </body>
 
