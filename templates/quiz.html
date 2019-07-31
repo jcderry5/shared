@@ -3,77 +3,210 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+
+
+    <style media="screen">
+      body{
+        background-image: url("images/papyrus.png");
+      }
+      h1{
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 2px 2px #AC3B61;
+        font-family: 'Roboto',serif;
+
+      }
+      form{
+        width: 1000px;
+        background-color: #EDC7B7;
+        margin: 0 auto;
+        box-shadow: 10px 10px 5px #888;
+        border-style: hidden;
+        border-radius: 5px;
+      }
+      .quiz_ques{
+        text-align: center;
+        width: 80%;
+        margin: 10px auto;
+        height: 80%;
+      }
+      h3{
+        border-style: solid;
+        height: 100px;
+        font-size: 40px;
+        vertical-align: middle;
+        box-shadow: 5px 5px 1px #888888;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .answers{
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+
+      }
+      .answer_boxes {
+        width: 30%;
+        border-style: solid;
+        border-radius: 5px;
+        height: 60px;
+        text-align: center;
+        padding: 5px;
+        vertical-align: middle;
+        line-height: 25px
+      }
+      /* HIDE RADIO */
+      [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      /* IMAGE STYLES */
+      [type=radio] + div {
+        cursor: pointer;
+      }
+
+      /* CHECKED STYLES */
+      [type=radio]:checked + div {
+        outline: 2px solid #123c69;
+        box-shadow: 3px 3px 5px 6px #ccc;
+      }
+
+      [type=submit]{
+        margin: 5px auto;
+        font-size: 15px;
+        box-shadow: 3px 3px 5px 6px #ccc;
+      }
+    </style>
   </head>
   <body>
+<h1>What's Your Learning Style?</h1>
 <form action="/Quiz" method="post">
-    <div class="quiz_ques">
+  <div class="quiz_ques">
       <br>
-        <h3> 1. When studying, I learn best when I: </h3>
-        <!-- v = visual  -->
-        <p><input id="q-1v" name="q-1" type="radio" value="v" />
-          <label for="q-1v">watch someone show me how</label></p>
-        <!-- a = lecture/auditory -->
-        <p><input id="q-1a" name="q-1" type="radio" value="a" />
-          <label for="q-1a">hear someone instruct me how</label></p>
-        <!-- r = reading/writing -->
-        <p><input id="q-1r" name="q-1" type="radio" value="r" />
-          <label for="q-1r">create my own notes</label></p>
+
+        <h3> 1. The best way for me to learn when studying is when I: </h3>
+
+        <div class="answers">
+          <!-- v = visual  -->
+          <label class="answer_boxes">
+            <input id="q-1v" type="radio" name="q-1" value="v">
+            <div>watch someone show me how</div>
+          </label>
+          <!-- a = lecture/auditory  -->
+          <label class="answer_boxes">
+            <input id="q-1a" type="radio" name="q-1" value="a">
+            <div>hear someone instruct me how</div>
+          </label>
+          <!-- r = reading/writing  -->
+          <label class="answer_boxes">
+            <input id="q-1r" type="radio" name="q-1" value="r">
+            <div>create my own notes</div>
+          </label>
+
+        </div>
+      <br>
     </div>
 
     <div class="quiz_ques">
       <br>
-        <h3> 2. When spelling, I verify accuracy by:  </h3>
+        <h3> 2. When spelling something out, I can verify my accuracy by:  </h3>
+
+      <div class="answers">
+
         <!-- v = visual  -->
-        <p><input id="q-2v" name="q-2" type="radio" value="v" />
-          <label for="q-2v">looking at the word to see if it's correct</label></p>
+        <label class="answer_boxes">
+          <input id="q-2v" type="radio" name="q-2" value="v">
+          <div>looking at the word to see if it's correct</div>
+        </label>
         <!-- a = lecture/auditory -->
-        <p><input id="q-2a" name="q-2" type="radio" value="a" />
-          <label for="q-2a">sounding the word out</label></p>
+        <label class="answer_boxes">
+          <input id="q-2a" type="radio" name="q-2" value="a">
+          <div>sounding the word out</div>
+        </label>
         <!-- r = reading/writing -->
-        <p><input id="q-2r" name="q-2" type="radio" value="r" />
-          <label for="q-2r">writing the word out again</label></p>
+        <label class="answer_boxes">
+          <input id="q-2r" type="radio" name="q-2" value="r">
+          <div>writing the word out again</div>
+        </label>
+      </div>
     </div>
 
     <div class="quiz_ques">
       <br>
         <h3> 3. When I have to remember a list of items, I remember best by:  </h3>
-        <!-- v = visual  -->
-        <p><input id="q-3v" name="q-3" type="radio" value="v" />
-          <label for="q-3v">reading them repetitively</label></p>
-        <!-- a = lecture/auditory -->
-        <p><input id="q-3a" name="q-3" type="radio" value="a" />
-          <label for="q-3a">repeat them over and over</label></p>
-        <!-- r = reading/writing -->
-        <p><input id="q-3r" name="q-3" type="radio" value="r" />
-          <label for="q-3r">writing them on a piece of paper</label></p>
+
+        <div class="answers">
+
+          <!-- v = visual  -->
+          <label class="answer_boxes">
+            <input id="q-3v" type="radio" name="q-3" value="v">
+            <div>reading them repetitively</div>
+          </label>
+          <!-- a = lecture/auditory -->
+          <label class="answer_boxes">
+            <input id="q-3a" type="radio" name="q-3" value="a">
+            <div>repeat them over and over</div>
+          </label>
+          <!-- r = reading/writing -->
+          <label class="answer_boxes">
+            <input id="q-3" type="radio" name="q-3" value="r">
+            <div>writing them on a piece of paper</div>
+          </label>
+        </div>
+      <br>
     </div>
 
     <div class="quiz_ques">
       <br>
         <h3> 4. When facing a problem, I best solve by:  </h3>
-        <!-- v = visual  -->
-        <p><input id="q-4v" name="q-4" type="radio" value="v" />
-          <label for="q-4v">drawing it out</label></p>
-        <!-- a = lecture/auditory -->
-        <p><input id="q-4a" name="q-4" type="radio" value="a" />
-          <label for="q-4a">talking myself through it</label></p>
-        <!-- r = reading/writing -->
-        <p><input id="q-4r" name="q-4" type="radio" value="r" />
-          <label for="q-4r">creating a draft and following myself through it</label></p>
+
+        <div class="answers">
+          <!-- v = visual  -->
+          <label class="answer_boxes">
+            <input id="q-4v" type="radio" name="q-4" value="v">
+            <div>drawing it out</div>
+          </label>
+          <!-- a = lecture/auditory -->
+          <label class="answer_boxes">
+            <input id="q-4a" type="radio" name="q-4" value="a">
+            <div>talking myself through it</div>
+          </label>
+          <!-- r = reading/writing -->
+          <label class="answer_boxes">
+            <input id="q-4r" type="radio" name="q-4" value="r">
+            <div>creating a draft and following myself through it</div>
+          </label>
+        </div>
+
     </div>
 
     <div class="quiz_ques">
       <br>
         <h3> 5. I prefer an instructor who:  </h3>
-        <!-- v = visual  -->
-        <p><input id="q-5v" name="q-5" type="radio" value="v" />
-          <label for="q-5v">gives lectures using presentation tools</label></p>
-        <!-- a = lecture/auditory -->
-        <p><input id="q-5a" name="q-5" type="radio" value="a" />
-          <label for="q-5a">shows videos like CrashCourse</label></p>
-        <!-- r = reading/writing -->
-        <p><input id="q-5r" name="q-5" type="radio" value="r" />
-          <label for="q-5r">handout notes that contains annotated key words</label></p>
+
+        <div class="answers">
+          <!-- v = visual  -->
+          <label class="answer_boxes">
+            <input id="q-5v" type="radio" name="q-5" value="v">
+            <div>gives lectures using presentation tools</div>
+          </label>
+          <!-- a = lecture/auditory  -->
+          <label class="answer_boxes">
+            <input id="q-5a" type="radio" name="q-5" value="a">
+            <div>shows videos like CrashCourse</div>
+          </label>
+          <!-- r = reading/writing  -->
+          <label class="answer_boxes">
+            <input id="q-5r" type="radio" name="q-5" value="r">
+            <div>handout notes that contains annotated key words</div>
+          </label>
+        </div>
+      <br>
     </div>
 
     <input type="submit" value="Submit">
