@@ -84,6 +84,11 @@
   </head>
   <body>
 
+
+
+
+
+
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -93,7 +98,7 @@
       {% elif learning_style == "Auditory"%}
       <h3><a href="/Auditory">Learn</a></h3>
 
-      {% elif learning_style == "Writing"%}
+      {% elif learning_style == "Reading/Writing"%}
       <h3><a href="/Writing">Learn</a></h3>
 
       {%else%}
@@ -127,12 +132,6 @@
 
           <h3 class="titlebox">Last Name:</h4>
           <input class="textbox" type="text" name="last_name">
-
-          <h3 class="titlebox">User Name:</h4>
-          <input class="textbox" type="text" name="username">
-
-          <h3 class="titlebox" type="password">Password:</h4>
-          <input class="textbox" type="text" name="password">
           <br> <br>
           <input class="button" type="submit">
         </form><br><br>
