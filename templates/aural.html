@@ -10,6 +10,7 @@
   font-family: Arial
 
 }
+
 .kewl {
   background-color: #BAB2B5;
   width: 200px;
@@ -51,7 +52,9 @@ a{
   /* border: 2px solid #AC3B61; */
   border-radius: 10px;
 }
-
+test {
+  font-size: 20px;
+}
 a:hover{
   color: white;
   background-color: #C16C89;
@@ -199,7 +202,12 @@ body {
           $(".rome").hide();
         }
     });
-
+    $("p").hover(function() {
+      $(this).stop().animate({ fontSize : '25px' });
+},
+function() {
+      $(this).stop().animate({ fontSize : '20px' });
+});
 
 
 });
@@ -221,22 +229,18 @@ body {
 
 <h3 align="center">Verbal/Auditory Learners tend to:  </h3>
 
-<p align="center">
-  Learn well through lectures
-  <br><br>
-  Be an excellent listener
-  <br><br>
-  Reproduce symbols, letters or words by hearing them
-  <br><br>
-  Like talking
-  <br><br>
-  Enjoy plays, dialogues, dramas
-  <br><br>
-  Learn concepts by listening to tapes
-  <br><br>
-  Enjoy music
-  <br><br>
-  Repeat or fulfill verbal instructions
+<p align="center">  Learn well through lectures</p>
+<p align="center">  Be an excellent listener </p>
+ <p align="center">  Reproduce symbols, letters or words by hearing them</p>
+
+<p align="center">  Like talking </p>
+
+<p align="center">  Enjoy plays, dialogues, dramas </p>
+
+<p align="center">  Learn concepts by listening to tapes </p>
+
+<p align="center">  Enjoy music </p>
+<p align="center">  Repeat or fulfill verbal instructions </p>
 
 </p>
 
