@@ -11,6 +11,14 @@
   font-family: Arial
 
 }
+.hey {
+  display: flex;
+  justify-content: space-around;
+
+}
+.calc {
+  border: 5px solid #123C69;
+}
 .kewl {
   background-color: #BAB2B5;
   width: 200px;
@@ -57,6 +65,149 @@ body {
 }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#math,#science, #history").hide();
+    $("#mlink").click(function() {
+      $("#math, #science, .calc, .algebra, .geometry, .pre,  .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome, #history").hide();
+      $("#math").show();
+    });
+    $("#mscience").click(function() {
+      $("#math, .calc, .algebra, .geometry, .pre, #science, .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome, #history").hide();
+      $("#science").show();
+  });
+  $("#mhistory").click(function() {
+    $("#math, .calc, .algebra, .geometry, .pre, #science, .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome").hide();
+    $("#history").show();
+});
+  $(".calc").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "calc")
+      {
+        $(".calc").show();
+      }
+      else {
+        $(".calc").hide();
+      }
+  });
+  $(".algebra").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "alg")
+      {
+        $(".algebra").show();
+      }
+      else {
+        $(".algebra").hide();
+      }
+  });
+  $(".geometry").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "geo")
+      {
+        $(".geometry").show();
+      }
+      else {
+        $(".geometry").hide();
+      }
+  });
+  $(".pre").hide();
+  $("#math").change(function() {
+    if($( "#math option:selected" ).val() == "precal")
+      {
+        $(".pre").show();
+      }
+      else {
+        $(".pre").hide();
+              }
+    });
+    $(".chem").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "chem")
+        {
+          $(".chem").show();
+        }
+        else {
+          $(".chem").hide();
+        }
+    });
+    $(".bio").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "bio")
+        {
+          $(".bio").show();
+        }
+        else {
+          $(".bio").hide();
+        }
+    });
+    $(".phy").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "phy")
+        {
+          $(".phy").show();
+        }
+        else {
+          $(".phy").hide();
+        }
+    });
+    $(".anatomy").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "anatomy")
+        {
+          $(".anatomy").show();
+        }
+        else {
+          $(".anatomy").hide();
+        }
+    });
+    $(".korea").hide();
+    $("#history").change(function() {
+      if($( "#history option:selected" ).val() == "korea")
+        {
+          $(".korea").show();
+        }
+        else {
+          $(".korea").hide();
+        }
+    });
+    $(".joan").hide();
+    $("#history").change(function() {
+      if($( "#history option:selected" ).val() == "joan")
+        {
+          $(".joan").show();
+        }
+        else {
+          $(".joan").hide();
+        }
+    });
+    $(".egypt").hide();
+    $("#history").change(function() {
+      if($( "#history option:selected" ).val() == "egypt")
+        {
+          $(".egypt").show();
+        }
+        else {
+          $(".egypt").hide();
+        }
+    });
+    $(".rome").hide();
+    $("#history").change(function() {
+      if($( "#history option:selected" ).val() == "rome")
+        {
+          $(".rome").show();
+        }
+        else {
+          $(".rome").hide();
+        }
+    });
+
+
+
+});
+</script>
+
   </head>
   <body bgcolor="#EDC7B7">
 
@@ -94,7 +245,7 @@ Be keen on using quotations, manuals, dictionaries, lists, the internet, logs, j
 <br>
 <div class="flex">
 
-<div class="kewl">
+<div id="mlink" class="kewl">
 
 Learn Math
 <br><br>
@@ -104,14 +255,14 @@ Learn Math
 </div>
 <br>
 
-<div class="kewl">
+<div id="mscience" class="kewl">
 
 Learn Science
 <br><br>
 <img align="middle" height="150px" width="200px" align="center" src="https://ichef.bbci.co.uk/childrens-responsive-ichef-live/r/640/1x/cbbc/science-onward-journey_v3.png" alt="">
 </div>
 
-<div class="kewl">
+<div id="mhistory" class="kewl">
 
 Learn History
 <br><br>
@@ -120,8 +271,63 @@ Learn History
 </div>
 </div>
 
-<iframe width="700" height="315" src="https://quizlet.com/">
-</iframe>
+<div align="center" >
+
+<select id="math" name="math">
+  <option value="select">Select Math Topic</option>
+   <option value="calc">Calculus</option>
+   <option id="alg" value="alg">Algebra 2</option>
+   <option id="geo" value="geo">Geometry</option>
+   <option id="pre" value="precal">Pre-calculus</option>
+ </select>
+
+ <select id="science" name="science">
+   <option value="select">Select Science Topic</option>
+    <option value="bio">Biology</option>
+    <option  value="chem">Chemistry</option>
+    <option  value="phy">Physics</option>
+    <option  value="anatomy">Anatomy</option>
+  </select>
+
+  <select id="history" name="history">
+    <option value="select">Select History Topic</option>
+     <option value="korea">Korean War</option>
+     <option  value="joan">Joan of Arc</option>
+     <option  value="egypt">Cleopatra</option>
+     <option  value="rome">Fall of Rome</option>
+   </select>
+
+
+</div>
+<br>
+<div class="hey">
+
+<iframe class="calc" src="https://drive.google.com/file/d/1bvs_16chVUgANxa_TKY58v1Imiz81Y4r/preview" width="640" height="480"></iframe>
+<iframe class="calc" src="https://drive.google.com/file/d/0BxTDnt_1YMbKNmNiMzU3ZjMtNWU4YS00MDBkLThkZjQtNGRiNzg0OWNhYzY4/preview" width="640" height="480" ></iframe>
+<iframe class="algebra" src="https://drive.google.com/file/d/1t8izEqAP-Ikafntkc5gaYxWaIGK4KLnT/preview" width="640" height="480"></iframe>
+<iframe class="algebra" src="https://drive.google.com/file/d/1jmX_P3WBFiPYRecZxNzLxbJCd7nDHhJD/preview" width="640" height="480"></iframe>
+<iframe class="geometry" src="https://drive.google.com/file/d/1MPtKD5IHZS5idIL7cI0ppQtAit_UuhYg/preview" width="640" height="480"></iframe>
+<iframe class="geometry" src="https://drive.google.com/file/d/1k_2l7O0xJmwvLrmkcsdPdbLdlw9Geug9/preview" width="640" height="480"></iframe>
+<iframe class="pre" src="https://drive.google.com/file/d/1QAvo0utrh1giHdswDHYQIRoO4w2nS6DF/preview" width="640" height="480"></iframe>
+<iframe class="pre" src="https://drive.google.com/file/d/1ivHw0hsoNofnUo-zDtP14fDgftTsRykZ/preview" width="640" height="480"></iframe>
+<iframe class="bio" src="https://drive.google.com/file/d/1J6X0hKqXrlJVaycA8PWAa4hdxbNzNzJG/preview" width="640" height="480"></iframe>
+<iframe class="bio" src="https://drive.google.com/file/d/1ptS7EVLIIhMpkCj4Rmo_v3zgAC6G45FB/preview" width="640" height="480"></iframe>
+<iframe class="chem" src="https://drive.google.com/file/d/1UGo7BBXXCwlT6IreGvMVI-iocB2z8pwJ/preview" width="640" height="480"></iframe>
+<iframe class="chem" src="https://drive.google.com/file/d/1htK-J7rV9zZI1yrdm_LWdS8fb_h1h9-O/preview" width="640" height="480"></iframe>
+<iframe class="phy" src="https://drive.google.com/file/d/14gGeMdHVrhHRbf9LNHjawto4s_IeBXXn/preview" width="640" height="480"></iframe>
+<iframe class="phy" src="https://drive.google.com/file/d/191x7FfazAnFqXaPFZRwDhYDIZ8UmGGfs/preview" width="640" height="480"></iframe>
+<iframe class="anatomy" src="https://drive.google.com/file/d/1OyhsfLStM9GegrQ5YRAL2G2uBDeq9_ah/preview" width="640" height="480"></iframe>
+<iframe class="anatomy" src="https://drive.google.com/file/d/1XeK9waUnjXrO9o-IN8EoEjMLTOk0HxZW/preview" width="640" height="480"></iframe>
+<iframe class="korea" src="https://drive.google.com/file/d/1_bEL14vNe_VpSYwvgISSAdgrV2gT3sa8/preview" width="640" height="480"></iframe>
+<iframe class="korea" src="https://drive.google.com/file/d/1tVu61p91v2V5KtGUr5fWjY6weAsGzWHz/preview" width="640" height="480"></iframe>
+<iframe class="joan" src="https://drive.google.com/file/d/1qT90QEDlcVXVK_plNrjiYAIABf7DA5-r/preview" width="640" height="480"></iframe>
+<iframe class="joan" src="https://drive.google.com/file/d/128aSj27CKOvc8OtE1ldaKTG0wDStEaut/preview" width="640" height="480"></iframe>
+<iframe class="egypt"src="https://drive.google.com/file/d/1YmjYk5vq-i60fwHIVmUFSDmeToRZXbnB/preview" width="640" height="480"></iframe>
+<iframe class="egypt" src="https://drive.google.com/file/d/10z0UG3D1FtjCebzTLzy7wOzDzsbBckKp/preview" width="640" height="480"></iframe>
+<iframe class="rome" src="https://drive.google.com/file/d/1-jSVYa6QyJz4io-iUzNnDN4XnKKp8eY4/preview" width="640" height="480"></iframe>
+<iframe class="rome" src="https://drive.google.com/file/d/1wpxMD9FHUAOXNEr7tTtSW54CFl6P7SBq/preview" width="640" height="480"></iframe>
+
+</div>
 
   </body>
 
