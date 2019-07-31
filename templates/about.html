@@ -17,13 +17,15 @@
         display: flex;
         justify-content: space-around;
         box-shadow: 0px 2px #94888C;
+        opacity: .95;
+
       }
       a{
         text-decoration: none;
         color: #AC3B61;
         text-shadow: 0.5px 0.5px;
         padding: 10px;
-        border: 2px solid #AC3B61;
+        /* border: 2px solid #AC3B61; */
         border-radius: 10px;
       }
       a:hover{
@@ -110,7 +112,21 @@
   <body>
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
+
+      {%if learning_style == "Visual" %}
+      <h3><a href="/Visual">Learn</a></h3>
+
+      {% elif learning_style == "Auditory"%}
+      <h3><a href="/Auditory">Learn</a></h3>
+
+      {% elif learning_style == "Reading/Writing"%}
+      <h3><a href="/Writing">Learn</a></h3>
+
+      {%else%}
       <h3><a href="/Quiz">Quiz</a></h3>
+
+      {%endif%}
+
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>

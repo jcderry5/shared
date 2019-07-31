@@ -175,7 +175,29 @@ class WritingPage(webapp2.RequestHandler):
 class AboutPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/about.html')
-        self.response.write(writing_template.render())
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+        h2j_ls = " "
+
+        if h2j_user:
+            h2j_ls = h2j_user.learning_style
+
+        about_dict = {
+           "h2j_user" : h2j_user,
+           "learning_style" : h2j_ls
+        }
+
+        self.response.write(writing_template.render(about_dict))
 
 
 
