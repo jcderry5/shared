@@ -65,7 +65,7 @@ class HomePage(webapp2.RequestHandler):
             temp_last_name = self.request.get("last_name")
             user = users.get_current_user()
             temp_email_address = user.nickname()
-            H2JUser(email=temp_email_address, first_name=temp_first_name, 
+            H2JUser(email=temp_email_address, first_name=temp_first_name,
                     last_name=temp_last_name).put()
 
             return webapp2.redirect("/Quiz")
@@ -151,6 +151,7 @@ class VisualPage(webapp2.RequestHandler):
 class ProfilePage(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template('templates/profile.html')
+        self.response.write(profile_template.render())
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
