@@ -23,13 +23,82 @@
         color: #AC3B61;
         text-shadow: 0.5px 0.5px;
         padding: 10px;
-        /* border: 2px solid #AC3B61; */
+        border: 2px solid #AC3B61;
         border-radius: 10px;
       }
       a:hover{
         color: white;
         background-color: #C16C89;
       }
+
+      #h1{
+        text-align: center;
+        color: #AC3B61;
+        font-family: Arial
+      }
+      .ProfilePic{
+        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+      }
+
+      #intro{
+        color: #AC3B61;
+        font-family: Arial
+      }
+
+      .our_name{
+        font-size: 1em;
+        width: auto;
+        margin-left: 30px;
+      }
+
+      #abt_us{
+        background-color: red;
+        display: block;
+        border-radius: 25px;
+        padding: 25px 100px;
+        margin: 0px 50px;
+        display:flex;
+        justify-content: space-evenly;
+      }
+
+      #JoJo{
+        background-image: url("https://www.wolf.org/wp-content/uploads/2019/04/5D3_3666.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 5px;
+        background-color: #BAB2B5;
+        border: 12px outset #123C69;
+        width: 100%;
+      }
+
+      #Jalyn{
+        background-image: url("https://www.thehappycatsite.com/wp-content/uploads/2018/02/burmese-cat-names.jpg");
+        background-size: cover;
+        margin: 175px;
+        margin-bottom: 50px;
+      }
+
+      #link{
+        width: 100px;
+        height: 100px;
+        display:block;
+        border: none;
+      }
+
+      #link img{
+        width:100%;
+        height:100%;
+      }
+
+      #Hein{
+        background-image: url(" https://i.pinimg.com/originals/cb/63/b7/cb63b7065a68a69dee7c55210700a572.jpg");
+        background-size: cover;
+        margin: 175px;
+        margin-bottom: 50px;
+      }
+
     </style>
   </head>
   <body>
@@ -39,6 +108,23 @@
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
-    This is the about page
+
+    <br><br><br><br><br>
+  <center> <h1 id="intro" > Meet the Team! </h1> </center>
+
+  <div id= "abt_us">
+    <div id="JoJo" class="ProfilePic">
+    </div>
+    <div class="our_name">
+      <h1>Joseph</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus augue elit, ultrices sed tincidunt at, scelerisque a justo. Donec dictum quam in enim gravida tincidunt. Donec varius eu tellus nec euismod. Etiam et sodales magna. Mauris at gravida orci. In semper mi eget tortor pellentesque, ac accumsan metus accumsan. In ipsum lorem, porta et turpis sed, egestas interdum dui. Donec ornare tellus massa, non tempus urna aliquet eu. Vestibulum at maximus dolor, mattis rutrum sem.</p>
+      <a id="link" href="https://www.linkedin.com/in/joseph-pabon-navarro/"> <img src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
+    </div>
+  </div>
+
+
+  <div id="Jalyn" class="ProfilePic"></div>
+  <div id="Hein" class= "ProfilePic"></div>
+
   </body>
 </html>
