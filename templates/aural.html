@@ -64,6 +64,7 @@ body {
   $(document).ready(function(){
     $("#math,#science").hide();
     $("#mlink").click(function() {
+      $("#math, #science").hide();
       $("#math").show();
     });
     $("#mscience").click(function() {
@@ -120,7 +121,46 @@ body {
           $(".chem").hide();
         }
     });
-
+    $(".bio").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "bio")
+        {
+          $(".bio").show();
+        }
+        else {
+          $(".bio").hide();
+        }
+    });
+    $(".phy").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "phy")
+        {
+          $(".phy").show();
+        }
+        else {
+          $(".phy").hide();
+        }
+    });
+    $(".anatomy").hide();
+    $("#science").change(function() {
+      if($( "#science option:selected" ).val() == "anatomy")
+        {
+          $(".anatomy").show();
+        }
+        else {
+          $(".anatomy").hide();
+        }
+    });
+    $(".korea").hide();
+    $("#history").change(function() {
+      if($( "#history option:selected" ).val() == "korea")
+        {
+          $(".korea").show();
+        }
+        else {
+          $(".korea").hide();
+        }
+    });
 
 
 
@@ -211,11 +251,20 @@ Learn History
     <option  value="anatomy">Anatomy</option>
   </select>
 
+  <select id="history" name="history">
+    <option value="select">Select History Topic</option>
+     <option value="korea">Korean War</option>
+     <option  value="joan">Joan of Arc</option>
+     <option  value="egypt">Cleopatra</option>
+     <option  value="rome">Fall of Rome</option>
+   </select>
+
+
 </div>
 <br><br><br>
 <div class="hey">
 
-<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/rAof9Ld5sOg">
+<iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/rAof9Ld5sOg" frameborder="0" allowfullscreen>
 </iframe>
 <br>
 <iframe class="calc" id="vid" width="420" height="315" src="https://www.youtube.com/embed/YTKQswb60Pw">
@@ -245,13 +294,26 @@ Learn History
 <iframe class="chem" id="vid" width="420" height="315" src="https://www.youtube.com/embed/bka20Q9TN6M">
 </iframe>
 
+<iframe class="bio" id="vid" width="420" height="315" src="https://www.youtube.com/embed/URUJD5NEXC8">
+</iframe>
 
+<iframe class="bio" id="vid" width="420" height="315" src="https://www.youtube.com/embed/00jbG_cfGuQ">
+</iframe>
 
+<iframe class="phy" id="vid" width="420" height="315" src="https://www.youtube.com/embed/2WS1sG9fhOk">
+</iframe>
 
+<iframe class="phy" id="vid" width="420" height="315" src="https://www.youtube.com/embed/-6IgkG5yZfo">
+</iframe>
 
+<iframe class="anatomy" id="vid" width="420" height="315" src="https://www.youtube.com/embed/uBGl2BujkPQ">
+</iframe>
 
+<iframe class="anatomy" id="vid" width="420" height="315" src="https://www.youtube.com/embed/i5tR3csCWYo">
+</iframe>
 
-
+<iframe class="korea" id="vid" width="420" height="315" src="https://www.youtube.com/embed/i5tR3csCWYo">
+</iframe>
 
 
 
