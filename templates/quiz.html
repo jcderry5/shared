@@ -5,17 +5,23 @@
     <title></title>
     <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="../javascript/quiz_commands.js" type="text/javascript">
 
+    </script>
 
     <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
       body{
         background-image: url("images/papyrus.png");
+        font-family: Product Sans Regular,serif;
       }
       h1{
         font-size: 50px;
         text-align: center;
-        text-shadow: 2px 2px #AC3B61;
-        font-family: 'Roboto',serif;
+        text-shadow: 2px 2px #CB849C;
 
       }
       form{
@@ -25,6 +31,7 @@
         box-shadow: 10px 10px 5px #888;
         border-style: hidden;
         border-radius: 5px;
+        padding: 20px;
       }
       .quiz_ques{
         text-align: center;
@@ -40,11 +47,12 @@
         box-shadow: 5px 5px 1px #888888;
         padding-left: 15px;
         padding-right: 15px;
+        background-color: #CFAEA0;
       }
       .answers{
         display: flex;
         justify-content: space-around;
-        align-items: stretch;
+        align-items: center;
 
       }
       .answer_boxes {
@@ -55,7 +63,32 @@
         text-align: center;
         padding: 5px;
         vertical-align: middle;
-        line-height: 25px
+        line-height: 25px;
+        /* box-shadow: 0px 3px 15px rgba(0,0,0,0.2); */
+      }
+      .v_box.selected{
+        background-color: #A99854;
+        box-shadow: 0px 3px 15px rgba(151,151,151,0.99);
+        font-size: 20px;
+      }
+      .v_box{
+        background-color: #EDE2B7;
+      }
+      .a_box.selected{
+        background-color: #74C35F;
+        box-shadow: 0px 3px 15px rgba(151,151,151,0.99);
+        font-size: 20px;
+      }
+      .a_box{
+        background-color: #C2EDB7;
+      }
+      .r_box.selected{
+        background-color: #59B3A1;
+        box-shadow: 0px 3px 15px rgba(151,151,151,0.99);
+        font-size: 20px;
+      }
+      .r_box{
+        background-color: #B7EDE2;
       }
       /* HIDE RADIO */
       [type=radio] {
@@ -70,17 +103,37 @@
         cursor: pointer;
       }
 
+      label:hover {
+        font-size: 20px;
+      }
       /* CHECKED STYLES */
       [type=radio]:checked + div {
-        outline: 2px solid #123c69;
-        box-shadow: 3px 3px 5px 6px #ccc;
+        font-style: italic;
+        /* outline: 2px solid #123c69;
+        box-shadow: 3px 3px 5px 6px #ccc; */
       }
 
       [type=submit]{
-        margin: 5px auto;
-        font-size: 15px;
-        box-shadow: 3px 3px 5px 6px #ccc;
+        background-color: #C7B7ED;
+        border-style: solid;
+        border-color: black;
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        border-width: 3px;
+        color: black;
+        padding: 16px 48px;
+        text-decoration: none;
+        margin: 4px auto;
+        cursor: pointer;
+        font-family: Product Sans Regular,serif;
+        display: flex;
+        justify-content: center;
       }
+      [type=submit]:hover {
+        font-size: 20px;
+      }
+
+
     </style>
   </head>
   <body>
@@ -91,20 +144,20 @@
 
         <h3> 1. The best way for me to learn when studying is when I: </h3>
 
-        <div class="answers">
+        <div class="answers" id="q1">
           <!-- v = visual  -->
-          <label class="answer_boxes">
-            <input id="q-1v" type="radio" name="q-1" value="v">
+          <label class="answer_boxes v_box" id="q-1v">
+            <input type="radio" name="q-1" value="v" onClick="myFunction('q1','q-1v','v')">
             <div>watch someone show me how</div>
           </label>
           <!-- a = lecture/auditory  -->
-          <label class="answer_boxes">
-            <input id="q-1a" type="radio" name="q-1" value="a">
+          <label class="answer_boxes a_box" id="q-1a">
+            <input id="q-1a" type="radio" name="q-1" value="a" onClick="myFunction('q1','q-1a','a')">
             <div>hear someone instruct me how</div>
           </label>
           <!-- r = reading/writing  -->
-          <label class="answer_boxes">
-            <input id="q-1r" type="radio" name="q-1" value="r">
+          <label class="answer_boxes r_box" id="q-1r">
+            <input id="q-1r" type="radio" name="q-1" value="r" onClick="myFunction('q1','q-1r','r')">
             <div>create my own notes</div>
           </label>
 
@@ -119,18 +172,18 @@
       <div class="answers">
 
         <!-- v = visual  -->
-        <label class="answer_boxes">
-          <input id="q-2v" type="radio" name="q-2" value="v">
+        <label class="answer_boxes v_box" id="q-2v">
+          <input id="q-2v" type="radio" name="q-2" value="v" onClick="myFunction('q2','q-2v','v')">
           <div>looking at the word to see if it's correct</div>
         </label>
         <!-- a = lecture/auditory -->
-        <label class="answer_boxes">
-          <input id="q-2a" type="radio" name="q-2" value="a">
+        <label class="answer_boxes a_box" id="q-2a">
+          <input id="q-2a" type="radio" name="q-2" value="a" onClick="myFunction('q2','q-2a','a')">
           <div>sounding the word out</div>
         </label>
         <!-- r = reading/writing -->
-        <label class="answer_boxes">
-          <input id="q-2r" type="radio" name="q-2" value="r">
+        <label class="answer_boxes r_box" id="q-2r">
+          <input id="q-2r" type="radio" name="q-2" value="r" onClick="myFunction('q2','q-2r','r')">
           <div>writing the word out again</div>
         </label>
       </div>
@@ -143,18 +196,18 @@
         <div class="answers">
 
           <!-- v = visual  -->
-          <label class="answer_boxes">
-            <input id="q-3v" type="radio" name="q-3" value="v">
+          <label class="answer_boxes v_box" id="q-3v">
+            <input id="q-3v" type="radio" name="q-3" value="v" onClick="myFunction('q3','q-3v','v')">
             <div>reading them repetitively</div>
           </label>
           <!-- a = lecture/auditory -->
-          <label class="answer_boxes">
-            <input id="q-3a" type="radio" name="q-3" value="a">
+          <label class="answer_boxes a_box" id="q-3a">
+            <input id="q-3a" type="radio" name="q-3" value="a" onClick="myFunction('q3','q-3a','a')">
             <div>repeat them over and over</div>
           </label>
           <!-- r = reading/writing -->
-          <label class="answer_boxes">
-            <input id="q-3" type="radio" name="q-3" value="r">
+          <label class="answer_boxes r_box" id="q-3r">
+            <input id="q-3" type="radio" name="q-3" value="r" onClick="myFunction('q3','q-3r','r')">
             <div>writing them on a piece of paper</div>
           </label>
         </div>
@@ -167,19 +220,19 @@
 
         <div class="answers">
           <!-- v = visual  -->
-          <label class="answer_boxes">
-            <input id="q-4v" type="radio" name="q-4" value="v">
+          <label class="answer_boxes v_box" id="q-4v">
+            <input id="q-4v" type="radio" name="q-4" value="v" onClick="myFunction('q4','q-4v','v')">
             <div>drawing it out</div>
           </label>
           <!-- a = lecture/auditory -->
-          <label class="answer_boxes">
-            <input id="q-4a" type="radio" name="q-4" value="a">
+          <label class="answer_boxes a_box" id="q-4a">
+            <input id="q-4a" type="radio" name="q-4" value="a" onClick="myFunction('q4','q-4a','a')">
             <div>talking myself through it</div>
           </label>
           <!-- r = reading/writing -->
-          <label class="answer_boxes">
-            <input id="q-4r" type="radio" name="q-4" value="r">
-            <div>creating a draft and following myself through it</div>
+          <label class="answer_boxes r_box" id="q-4r">
+            <input id="q-4r" type="radio" name="q-4" value="r" onClick="myFunction('q4','q-4r','r')">
+            <div>following through a draft by myself</div>
           </label>
         </div>
 
@@ -191,19 +244,19 @@
 
         <div class="answers">
           <!-- v = visual  -->
-          <label class="answer_boxes">
-            <input id="q-5v" type="radio" name="q-5" value="v">
+          <label class="answer_boxes v_box" id="q-5v">
+            <input id="q-5v" type="radio" name="q-5" value="v" onClick="myFunction('q5','q-5v','v')">
             <div>gives lectures using presentation tools</div>
           </label>
           <!-- a = lecture/auditory  -->
-          <label class="answer_boxes">
-            <input id="q-5a" type="radio" name="q-5" value="a">
+          <label class="answer_boxes a_box" id="q-5a">
+            <input id="q-5a" type="radio" name="q-5" value="a" onClick="myFunction('q5','q-5a','a')">
             <div>shows videos like CrashCourse</div>
           </label>
           <!-- r = reading/writing  -->
-          <label class="answer_boxes">
-            <input id="q-5r" type="radio" name="q-5" value="r">
-            <div>handout notes that contains annotated key words</div>
+          <label class="answer_boxes r_box" id="q-5r">
+            <input id="q-5r" type="radio" name="q-5" value="r" onClick="myFunction('q5','q-5r','r')">
+            <div>gives out annotated lecture notes</div>
           </label>
         </div>
       <br>

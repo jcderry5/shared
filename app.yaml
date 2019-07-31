@@ -7,8 +7,11 @@ handlers:
   static_dir: images
 - url: /javascript
   static_dir: javascript
+- url: /fonts
+  static_dir: fonts
 - url: /.*
   script: main.app
+
 
 libraries:
 - name: webapp2
