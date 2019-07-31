@@ -45,6 +45,7 @@ class HomePage(webapp2.RequestHandler):
             print("No user exists")
             # This line creates a URL to log in with your Google Credentials.
             login_url = users.create_login_url('/')
+
             # This line uses string templating to create an anchor (link) element.
             login_html_element = '<a href="%s">Sign in</a>' % login_url
             # This line puts that URL on screen in a clickable anchor elememt.
@@ -170,6 +171,10 @@ class WritingPage(webapp2.RequestHandler):
         writing_template = jinja_env.get_template('templates/writing.html')
         self.response.write(writing_template.render())
 
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        writing_template = jinja_env.get_template('templates/about.html')
+        self.response.write(writing_template.render())
 
 
 
@@ -182,5 +187,7 @@ app = webapp2.WSGIApplication([
     ('/Profile', ProfilePage),
     ('/seed-data', LoadDataHandler),
     ('/Auditory', AuditoryPage),
-    ('/Writing', WritingPage)
+    ('/Writing', WritingPage),
+    ('/About', AboutPage),
+
 ], debug=True)
