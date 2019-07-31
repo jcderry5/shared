@@ -3,6 +3,149 @@
   <head>
     <meta charset="utf-8">
     <title>Visual Learning Style</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+        $("#math,#science, #history").hide();
+        $("#mlink").click(function() {
+          $("#math, #science, .calc, .algebra, .geometry, .pre,  .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome, #history").hide();
+          $("#math").show();
+        });
+        $("#mscience").click(function() {
+          $("#math, .calc, .algebra, .geometry, .pre, #science, .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome, #history").hide();
+          $("#science").show();
+      });
+      $("#mhistory").click(function() {
+        $("#math, .calc, .algebra, .geometry, .pre, #science, .phy, .chem, .bio, .anatomy, .korea, .joan, .egypt, .rome").hide();
+        $("#history").show();
+    });
+      $(".calc").hide();
+      $("#math").change(function() {
+        if($( "#math option:selected" ).val() == "calc")
+          {
+            $(".calc").show();
+          }
+          else {
+            $(".calc").hide();
+          }
+      });
+      $(".algebra").hide();
+      $("#math").change(function() {
+        if($( "#math option:selected" ).val() == "alg")
+          {
+            $(".algebra").show();
+          }
+          else {
+            $(".algebra").hide();
+          }
+      });
+      $(".geometry").hide();
+      $("#math").change(function() {
+        if($( "#math option:selected" ).val() == "geo")
+          {
+            $(".geometry").show();
+          }
+          else {
+            $(".geometry").hide();
+          }
+      });
+      $(".pre").hide();
+      $("#math").change(function() {
+        if($( "#math option:selected" ).val() == "precal")
+          {
+            $(".pre").show();
+          }
+          else {
+            $(".pre").hide();
+                  }
+        });
+        $(".chem").hide();
+        $("#science").change(function() {
+          if($( "#science option:selected" ).val() == "chem")
+            {
+              $(".chem").show();
+            }
+            else {
+              $(".chem").hide();
+            }
+        });
+        $(".bio").hide();
+        $("#science").change(function() {
+          if($( "#science option:selected" ).val() == "bio")
+            {
+              $(".bio").show();
+            }
+            else {
+              $(".bio").hide();
+            }
+        });
+        $(".phy").hide();
+        $("#science").change(function() {
+          if($( "#science option:selected" ).val() == "phy")
+            {
+              $(".phy").show();
+            }
+            else {
+              $(".phy").hide();
+            }
+        });
+        $(".anatomy").hide();
+        $("#science").change(function() {
+          if($( "#science option:selected" ).val() == "anatomy")
+            {
+              $(".anatomy").show();
+            }
+            else {
+              $(".anatomy").hide();
+            }
+        });
+        $(".korea").hide();
+        $("#history").change(function() {
+          if($( "#history option:selected" ).val() == "korea")
+            {
+              $(".korea").show();
+            }
+            else {
+              $(".korea").hide();
+            }
+        });
+        $(".joan").hide();
+        $("#history").change(function() {
+          if($( "#history option:selected" ).val() == "joan")
+            {
+              $(".joan").show();
+            }
+            else {
+              $(".joan").hide();
+            }
+        });
+        $(".egypt").hide();
+        $("#history").change(function() {
+          if($( "#history option:selected" ).val() == "egypt")
+            {
+              $(".egypt").show();
+            }
+            else {
+              $(".egypt").hide();
+            }
+        });
+        $(".rome").hide();
+        $("#history").change(function() {
+          if($( "#history option:selected" ).val() == "rome")
+            {
+              $(".rome").show();
+            }
+            else {
+              $(".rome").hide();
+            }
+        });
+
+
+
+    });
+    </script>
+
 <style media="screen">
 #title {
   text-align: center;
@@ -26,6 +169,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.hey {
+  display: flex;
+  justify-content: space-around;
+
 }
 .navigation_bar {
   background-color: #EEE2DC;
@@ -94,7 +242,7 @@ Be quiet and not talk at full length
 
 <div class="flex">
 
-<div class="kewl">
+<div id="mlink" class="kewl">
 
 Learn Math
 <br><br>
@@ -104,20 +252,77 @@ Learn Math
 </div>
 <br>
 
-<div class="kewl">
+<div id="mscience" class="kewl">
 
 Learn Science
 <br><br>
 <img align="middle" height="150px" width="200px" align="center" src="https://ichef.bbci.co.uk/childrens-responsive-ichef-live/r/640/1x/cbbc/science-onward-journey_v3.png" alt="">
 </div>
 
-<div class="kewl">
+<div id="mhistory" class="kewl">
 
 Learn History
 <br><br>
 <img align+"middle" height="150px" width="200px" align="center" src="http://study.com/cimages/course-image/mttc-history-practice-study-guide_171851_large.jpg" alt="">
 
 </div>
+</div>
+<div align="center" >
+
+<select id="math" name="math">
+  <option value="select">Select Math Topic</option>
+   <option value="calc">Calculus</option>
+   <option id="alg" value="alg">Algebra 2</option>
+   <option id="geo" value="geo">Geometry</option>
+   <option id="pre" value="precal">Pre-calculus</option>
+ </select>
+
+ <select id="science" name="science">
+   <option value="select">Select Science Topic</option>
+    <option value="bio">Biology</option>
+    <option  value="chem">Chemistry</option>
+    <option  value="phy">Physics</option>
+    <option  value="anatomy">Anatomy</option>
+  </select>
+
+  <select id="history" name="history">
+    <option value="select">Select History Topic</option>
+     <option value="korea">Korean War</option>
+     <option  value="joan">Joan of Arc</option>
+     <option  value="egypt">Cleopatra</option>
+     <option  value="rome">Fall of Rome</option>
+   </select>
+
+
+</div>
+<div class="hey">
+
+<iframe class="calc" src="https://quizlet.com/256298800/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="calc" src="https://quizlet.com/256299100/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="algebra" src="https://quizlet.com/250586782/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="algebra" src="https://quizlet.com/289526822/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="geometry" src="https://quizlet.com/217810365/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="geometry" src="https://quizlet.com/219841802/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="pre" src="https://quizlet.com/254242993/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="pre" src="https://quizlet.com/282076656/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="bio" src="https://quizlet.com/286940085/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="chem" src="https://quizlet.com/268992390/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="chem" src="https://quizlet.com/369227057/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="phy" src="https://quizlet.com/321913444/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="phy" src="https://quizlet.com/412009387/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="anatomy" src="https://quizlet.com/404661197/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="anatomy" src="https://quizlet.com/404662022/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="korea" src="https://quizlet.com/269627671/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="korea" src="https://quizlet.com/287471975/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="joan" src="https://quizlet.com/255888632/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="joan" src="https://quizlet.com/390360311/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="egypt" src="https://quizlet.com/287123462/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="egypt" src="https://quizlet.com/393699329/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="rome" src="https://quizlet.com/307421346/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+<iframe class="rome" src="https://quizlet.com/307403204/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
+
+
+
 </div>
   </body>
 
