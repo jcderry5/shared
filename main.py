@@ -60,14 +60,12 @@ class HomePage(webapp2.RequestHandler):
 
         if self.request.get("first_name") and self.request.get("last_name"):
             # This will run if we have fill in the form but haven't put into db
-            temp_username = self.request.get("username")
-            temp_password= self.request.get("password")
             temp_first_name = self.request.get("first_name")
             temp_last_name = self.request.get("last_name")
             user = users.get_current_user()
             temp_email_address = user.nickname()
-            H2JUser(username=temp_username, password=temp_password, email=temp_email_address,
-                    first_name=temp_first_name, last_name=temp_last_name).put()
+            H2JUser(email=temp_email_address, first_name=temp_first_name, 
+                    last_name=temp_last_name).put()
 
             return webapp2.redirect("/Quiz")
 
