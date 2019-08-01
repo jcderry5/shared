@@ -175,7 +175,7 @@ class ProfilePage(webapp2.RequestHandler):
         user = users.get_current_user()
         if user:
              # Create the sign out link (for later use).
-             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             signout_url = users.create_logout_url('/')
              # If the user is logged in, get their email address.
              email_address = user.nickname()
              # Then query Datastore to see if a user with this email has registered as
@@ -196,7 +196,8 @@ class ProfilePage(webapp2.RequestHandler):
                 "learning_style" : h2j_ls,
                 "first_name" : h2j_fn,
                 "last_name" : h2j_ln,
-                "email" : email_address
+                "email" : email_address,
+                "sign_out_link" : signout_url
              }
              self.response.write(profile_template.render(profile_dict))
         else:
