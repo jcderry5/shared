@@ -3,12 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title> H2J </title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
       body{
         background-image: url("images/bg_img.jpeg");
         background-color: #EDC7B7;
         background-repeat: no-repeat;
         background-size: cover;
+        font-family: Product Sans Regular,serif;
       }
       .navigation_bar{
         background-color: #EEE2DC;
@@ -33,13 +40,12 @@
       }
       .sign_in{
         height: 600px;
-        background-color: #EEE2DC;
+        /* background-color: #EEE2DC; */
         width: 500px;
-
-        border-style: solid;
+        /* border-style: solid;
         border-radius: 15px;
         border-width: thick;
-        border-color: #C16C89;
+        border-color: #C16C89; */
         position: absolute;
         left: 35%;
         top: 20%;
@@ -56,6 +62,7 @@
         color: #AC3B61;
         text-align: center;
         font-size: 60px;
+        text-shadow: 2px 2px rgba(203,132,156,0.99);
       }
       .textbox{
         width: 75%;
@@ -63,22 +70,42 @@
         box-sizing: border-box;
         border-radius: 5px;
         padding: 2px;
+        background-color: #F6F0ED;
+        padding: 3px;
       }
       .titlebox{
         margin-bottom: 5px;
         font-size: 25px;
+        color: black;
+        text-shadow: 1px 1px rgba(203,132,156,0.99);
       }
+      [type=submit]:hover {
+        font-size: 20px;
+        }
       .button{
-        background-color: #AC3B61; /* Green */
-        border: solid #906674;
+        background-color: #CB849C;
+        border: solid #AC3B61;
         border-width: 1px;
         border-radius: 10px;
-        color: #EDC7B7;
+        color: #AC3B61;
         padding: 10px 20px;
         text-align: center;
         text-decoration: none;
-
+        text-shadow: 0.5px 0.5px;
         font-size: 16px;
+      }
+      #google_login{
+        margin: 0 auto;
+        border-style: solid;
+        border-color: #AC3B61;
+        background-color: #F2D5C9;
+        display: flex;
+        justify-content: center;
+        width: 45%;
+        box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+      }
+      [type=submit]{
+        box-shadow: 2px 2px 1px rgba(166,166,166,0.4);
       }
     </style>
   </head>
@@ -107,9 +134,7 @@
     <br><br><br>
 
     <div class="sign_in">
-      <h2 id="sign_in">
-        Register
-      </h2>
+
 
       {% if h2j_user %}
         <h3 style="text-align: center; font-size: 25px;">
@@ -119,7 +144,10 @@
           Your learning style is: {{learning_style}}
         </h3>
       {% elif login_url%}
-          <a href={{login_url}}>Click to Log in</a>
+        <h2 id="sign_in">
+          Welcome to H2J
+        </h2>
+          <a id="google_login" href={{login_url}}>Click to Log in</a>
       {%else%}
         <form method="post" action="/" style="text-align: center" autocomplete="off">
           <h3 class="titlebox">First Name:</h4>
