@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> H2J </title>
+    <title> Home </title>
     <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style media="screen">
@@ -10,12 +10,13 @@
         font-family: Product Sans Regular;
         src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
       }
+
       body{
+        font-family: Product Sans Regular;
         background-image: url("images/bg_img.jpeg");
         background-color: #EDC7B7;
         background-repeat: no-repeat;
         background-size: cover;
-        font-family: Product Sans Regular,serif;
       }
       .navigation_bar{
         background-color: #EEE2DC;
@@ -107,6 +108,11 @@
       [type=submit]{
         box-shadow: 2px 2px 1px rgba(166,166,166,0.4);
       }
+      img{
+        margin-top: 60px;
+        height: 80%;
+        width: 80%;
+      }
     </style>
   </head>
   <body>
@@ -140,8 +146,8 @@
         <h3 style="text-align: center; font-size: 25px;">
           Thank you for registering!
           <br>
-          <br>
-          Your learning style is: {{learning_style}}
+            <img src="https://c8.alamy.com/comp/XAP6FM/three-friends-one-girl-and-two-boys-posing-gesturing-smiling-XAP6FM.jpg" alt="">
+            <!-- <img src="https://im4.ezgif.com/tmp/ezgif-4-e3aa0742d45d.gif" alt=""> -->
         </h3>
       {% elif login_url%}
         <h2 id="sign_in">
@@ -160,8 +166,6 @@
         </form><br><br>
       {%endif%}
     </div>
-    <div class="main_img">
 
-    </div>
   </body>
 </html>

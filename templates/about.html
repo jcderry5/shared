@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>About</title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
       body{
-        background-color: #EDC7B7;
+        background-image: url("images/papyrus.png");
+        font-family: Product Sans Regular,serif;
       }
       .navigation_bar{
         background-color: #EEE2DC;
@@ -45,8 +52,11 @@
       }
 
       #intro{
-        color: #AC3B61;
-        font-family: Arial
+        text-align: center;
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 2px 2px #CB849C;
       }
 
       .our_name{
@@ -55,14 +65,20 @@
         margin-left: 30px;
       }
 
-      #abt_us{
-        background-color: #8BE5FF;
+      .abt_us{
         display: block;
+        border-style: solid;
         border-radius: 25px;
         padding: 25px 100px;
         margin: 0px 50px;
         display:flex;
         justify-content: space-evenly;
+
+
+        vertical-align: middle;
+        box-shadow: 5px 5px 1px #888888;
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       #JoJo{
@@ -70,7 +86,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #C2EDB7;
         border: 12px outset #123C69;
         width: 100%;
       }
@@ -80,7 +96,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #EDE2B7;
         border: 12px outset #123C69;
         width: 100%;
       }
@@ -102,14 +118,34 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #B7EDE2;
         border: 12px outset #123C69;
         width: 100%;
+      }
+      #main_area{
+        background-color: #EDC7B7;
+        width: 80%;
+        height: 100%;
+        margin: 100px auto;
+        box-shadow: 10px 10px 5px #888;
+        border-style: hidden;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      #jo_box{
+        background-color: #C2EDB7;
+      }
+      #jalyn_box{
+        background-color: #EDE2B7;
+      }
+      #hein_box{
+        background-color: #B7EDE2;
       }
 
     </style>
   </head>
   <body>
+    <div id="main_area">
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -131,10 +167,9 @@
       <h3><a href="/Profile">Profile</a></h3>
     </div>
 
-    <br><br><br><br><br>
   <center> <h1 id="intro" > Meet the Team! </h1> </center>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="jo_box">
     <div id="JoJo" class="ProfilePic">
     </div>
     <div class="our_name">
@@ -146,7 +181,7 @@
 
 <br><br>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="jalyn_box">
     <div id="Jalyn" class="ProfilePic">
     </div>
     <div class="our_name">
@@ -158,7 +193,7 @@
 
 <br><br>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="hein_box">
     <div id="Hein" class="ProfilePic">
     </div>
     <div class="our_name">
@@ -168,5 +203,6 @@
     </div>
 
   </div>
+</div>
   </body>
 </html>
