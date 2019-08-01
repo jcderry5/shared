@@ -116,7 +116,8 @@
     </style>
   </head>
   <body>
-{% if h2j_user != " " %}
+{% if h2j_user %}
+
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -137,19 +138,18 @@
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
-    {% endif %}
+
+{% endif %}
     <br><br><br>
 
     <div class="sign_in">
 
 
       {% if h2j_user %}
-        <h3 style="text-align: center; font-size: 25px;">
-          Thank you for registering!
+          <h2 id="sign_in" style="text-align: center;">
+            It's Learning Time!
+          </h2>
           <br>
-            <img src="https://c8.alamy.com/comp/XAP6FM/three-friends-one-girl-and-two-boys-posing-gesturing-smiling-XAP6FM.jpg" alt="">
-            <!-- <img src="https://im4.ezgif.com/tmp/ezgif-4-e3aa0742d45d.gif" alt=""> -->
-        </h3>
       {% elif login_url%}
         <h2 id="sign_in">
           Welcome to H2J
