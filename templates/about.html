@@ -35,7 +35,7 @@
         /* border: 2px solid #AC3B61; */
         border-radius: 10px;
       }
-      a:hover{
+      a.linked:hover{
         color: white;
         background-color: #C16C89;
       }
@@ -48,9 +48,14 @@
       .ProfilePic{
         border-radius: 50%;
         width: 300px;
-        height: 150px;
+        height: 300px;
+        margin: 40px 40px;
+        flex-grow: 1;
+        border-style: solid
       }
-
+      img#linkedin_img:hover{
+        box-shadow: 5px 10px #888888;
+      }
       #intro{
         text-align: center;
         color: black;
@@ -59,69 +64,38 @@
         text-shadow: 2px 2px #CB849C;
       }
 
-      .our_name{
+      .our_info{
         font-size: 1em;
-        width: auto;
+        width: 800px;
         margin-left: 30px;
+        flex-grow: 3;
       }
 
       .abt_us{
-        display: block;
         border-style: solid;
         border-radius: 25px;
-        padding: 25px 100px;
+        /* padding: 25px 100px; */
         margin: 0px 50px;
-        display:flex;
-        justify-content: space-evenly;
-
-
         vertical-align: middle;
         box-shadow: 5px 5px 1px #888888;
         padding-left: 15px;
         padding-right: 15px;
+
+        display:flex;
+        justify-content: space-evenly;
       }
 
-      #JoJo{
-        background-image: url("https://www.wolf.org/wp-content/uploads/2019/04/5D3_3666.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 5px;
-        background-color: #C2EDB7;
-        border: 12px outset #123C69;
-        width: 100%;
+      #linkedin{
+        width:70px;
+        height:70px;
       }
 
-      #Jalyn{
-        background-image: url("https://www.thehappycatsite.com/wp-content/uploads/2018/02/burmese-cat-names.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 5px;
-        background-color: #EDE2B7;
-        border: 12px outset #123C69;
-        width: 100%;
+      #linkedin_img{
+        width:70px;
+        height:70px;
       }
 
-      #link{
-        width: 100px;
-        height: 100px;
-        display:block;
-        border: none;
-      }
 
-      #link img{
-        width:100%;
-        height:100%;
-      }
-
-      #Hein{
-        background-image: url(" https://i.pinimg.com/originals/cb/63/b7/cb63b7065a68a69dee7c55210700a572.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        margin: 5px;
-        background-color: #B7EDE2;
-        border: 12px outset #123C69;
-        width: 60%;
-      }
       #main_area{
         background-color: #EDC7B7;
         width: 80%;
@@ -147,63 +121,67 @@
   <body>
     <div id="main_area">
     <div class="navigation_bar">
-      <h3><a href="/">Home Page</a></h3>
+      <h3><a class="linked" href="/">Home Page</a></h3>
 
       {%if learning_style == "Visual" %}
-      <h3><a href="/Visual">Learn</a></h3>
+      <h3><a class="linked" href="/Visual">Learn</a></h3>
 
       {% elif learning_style == "Auditory"%}
-      <h3><a href="/Auditory">Learn</a></h3>
+      <h3><a class="linked" href="/Auditory">Learn</a></h3>
 
       {% elif learning_style == "Reading/Writing"%}
-      <h3><a href="/Writing">Learn</a></h3>
+      <h3><a class="linked" href="/Writing">Learn</a></h3>
 
       {%else%}
-      <h3><a href="/Quiz">Quiz</a></h3>
+      <h3><a class="linked" href="/Quiz">Quiz</a></h3>
 
       {%endif%}
 
-      <h3><a href="/About">About</a></h3>
-      <h3><a href="/Profile">Profile</a></h3>
+      <h3><a class="linked" href="/About">About</a></h3>
+      <h3><a class="linked" href="/Profile">Profile</a></h3>
     </div>
 
   <center> <h1 id="intro" > Meet the Team! </h1> </center>
 
-  <div class= "abt_us" id="jo_box">
-    <div id="JoJo" class="ProfilePic">
+  <div class= "abt_us" id="hein_box">
+    <div>
+      <img id="Hein" class="ProfilePic" src="https://im2.ezgif.com/tmp/ezgif-2-87a24ba9f6cb.gif" alt="">
     </div>
-    <div class="our_name">
-      <h1>Joseph</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus augue elit, ultrices sed tincidunt at, scelerisque a justo. Donec dictum quam in enim gravida tincidunt. Donec varius eu tellus nec euismod. Etiam et sodales magna. Mauris at gravida orci. In semper mi eget tortor pellentesque, ac accumsan metus accumsan. In ipsum lorem, porta et turpis sed, egestas interdum dui. Donec ornare tellus massa, non tempus urna aliquet eu. Vestibulum at maximus dolor, mattis rutrum sem.</p>
-      <a id="link" href="https://www.linkedin.com/in/joseph-pabon-navarro/"> <img src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
+    <div class="our_info">
+      <h1>Hein San</h1>
+      <p>Hello! My name is Hein San and I was born in Burma (Myanmar) but immigrated into America ~8 years ago! Currently, I’m going to study Computer Science at my local community college and aiming to transfer. Prior to Google’s Computer Science Summer Institute, I had no coding experience but thanks to this program, I learned so much more! If you have questions or advice, feel free to reach out to me.</p>
+      <a id="linkedin" href="https://www.linkedin.com/in/heinhsan/"> <img id="linkedin_img" src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
     </div>
+
   </div>
 
 <br><br>
 
   <div class= "abt_us" id="jalyn_box">
-    <div id="Jalyn" class="ProfilePic">
+    <div>
+      <img id="Jalyn" class="ProfilePic" src="https://im2.ezgif.com/tmp/ezgif-2-e327a38697ab.gif" alt="">
     </div>
-    <div class="our_name">
-      <h1>Jalyn</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus augue elit, ultrices sed tincidunt at, scelerisque a justo. Donec dictum quam in enim gravida tincidunt. Donec varius eu tellus nec euismod. Etiam et sodales magna. Mauris at gravida orci. In semper mi eget tortor pellentesque, ac accumsan metus accumsan. In ipsum lorem, porta et turpis sed, egestas interdum dui. Donec ornare tellus massa, non tempus urna aliquet eu. Vestibulum at maximus dolor, mattis rutrum sem.</p>
-      <a id="link" href="https://www.linkedin.com/in/jalyn-derry-2013b6189/"> <img src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
+    <div class="our_info">
+      <h1>Jalyn Derry</h1>
+      <p>Hey Y’all! My name is Jalyn and I was born and raised in Dallas, Texas. I considered myself a proficient programmer when I began this camp with knowledge of only Java and HTML. However, after a rigorous three weeks of nose-to-the-grind coding classes at CSSI (ahh jk), I discovered so much more! Now, I have knowledge of HTML, CSS, Python, and (sadly) JavaScript. I hope to one day utilize those skills to become a software engineer or Interactions Designers at a major tech company (wink, wink). I will be attending The University of Texas at Austin (HOOK EM!) with a major in Computer Science.</p>
+      <a id="linkedin" href="https://www.linkedin.com/in/jalyn-derry-2013b6189/"> <img id="linkedin_img" src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
+    </div>
+  </div>
+<br><br>
+  <div class= "abt_us" id="jo_box">
+    <div>
+      <img id="JoJo" class="ProfilePic" src="https://im2.ezgif.com/tmp/ezgif-2-cec8613ca32b.gif" alt="">
+    </div>
+    <div class="our_info">
+      <h1>Joseph Pabon</h1>
+      <p>My name is Joseph and I was born in Puerto Rico but moved to Florida when I was 8. I will be attending the University of Florida to pursue a degree in Computer Science. The Computer Science Institute has taught me so much in only a small amount of time as I had no prior experience in coding. </p>
+      <a id="linkedin" href="https://www.linkedin.com/in/joseph-pabon-navarro/"> <img id="linkedin_img" src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
     </div>
   </div>
 
 <br><br>
 
-  <div class= "abt_us" id="hein_box">
-    <div id="Hein" class="ProfilePic">
-    </div>
-    <div class="our_name">
-      <h1>Hein San</h1>
-      <p>Hello! My name is Hein and I was born in Burma (Myanmar) but immigrated into America ~8 years ago! Currently, I’m going to study Computer Science at my local community college and aiming to transfer. Prior to Google’s Computer Science Summer Institute, I had no coding experience but thanks to this program, I learned so much more! If you have questions or advice, feel free to reach out to me.
-.</p>
-      <a id="link" href="https://www.linkedin.com/in/heinhsan/"> <img src="https://cdn.freebiesupply.com/logos/large/2x/linkedin-icon-logo-png-transparent.png"> </a>
-    </div>
 
-  </div>
 </div>
   </body>
 </html>

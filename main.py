@@ -26,7 +26,6 @@ class Image(webapp2.RequestHandler):
         else:
             self.response.out.write('No image')
 
-
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/home.html')
@@ -90,7 +89,6 @@ class HomePage(webapp2.RequestHandler):
           # This line puts that URL on screen in a clickable anchor elememt.
           self.response.write('Please log in.<b>' + login_html_element)
 
-
 class QuizPage(webapp2.RequestHandler):
     def post(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
@@ -153,7 +151,6 @@ class QuizPage(webapp2.RequestHandler):
         quiz_template = jinja_env.get_template('templates/quiz.html')
         self.response.write(quiz_template.render())
 
-
 class VisualPage(webapp2.RequestHandler):
     def get(self):
         visual_template = jinja_env.get_template('templates/visual.html')
@@ -207,7 +204,6 @@ class AuditoryPage(webapp2.RequestHandler):
         # url = result_as_json[0]['url']
         self.response.write(aural_template.render())
 
-
 class WritingPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/writing.html')
@@ -216,7 +212,6 @@ class WritingPage(webapp2.RequestHandler):
 class AboutPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/about.html')
-        self.response.write(writing_template.render())
 
 
         user = users.get_current_user()
