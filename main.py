@@ -72,8 +72,14 @@ class HomePage(webapp2.RequestHandler):
             # This will run if we have fill in the form but haven't put into db
             temp_first_name = self.request.get("first_name")
             temp_last_name = self.request.get("last_name")
-            profile_pic = self.request.get("pic")
-            pic_resize = images.resize(profile_pic, 256, 256)
+
+            if self.request.get("pic"):
+                profile_pic = self.request.get("pic")
+                pic_resize = images.resize(profile_pic, 256, 256)
+            else:
+                pic_resize = None
+
+
             user = users.get_current_user()
             temp_email_address = user.nickname()
             H2JUser(email=temp_email_address,
@@ -181,6 +187,8 @@ class ProfilePage(webapp2.RequestHandler):
                  h2j_ln = h2j_user.last_name
                  if h2j_user.profile_pic:
                      var_picture = 'data:image/png;base64,' + base64.b64encode(h2j_user.profile_pic)
+                 else:
+                     var_picture = "https://i.stack.imgur.com/34AD2.jpg"
 
 
              profile_dict = {
