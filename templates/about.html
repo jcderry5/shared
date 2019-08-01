@@ -65,14 +65,20 @@
         margin-left: 30px;
       }
 
-      #abt_us{
-        background-color: #8BE5FF;
+      .abt_us{
         display: block;
+        border-style: solid;
         border-radius: 25px;
         padding: 25px 100px;
         margin: 0px 50px;
         display:flex;
         justify-content: space-evenly;
+
+
+        vertical-align: middle;
+        box-shadow: 5px 5px 1px #888888;
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       #JoJo{
@@ -80,7 +86,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #C2EDB7;
         border: 12px outset #123C69;
         width: 100%;
       }
@@ -90,7 +96,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #EDE2B7;
         border: 12px outset #123C69;
         width: 100%;
       }
@@ -112,7 +118,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         margin: 5px;
-        background-color: #BAB2B5;
+        background-color: #B7EDE2;
         border: 12px outset #123C69;
         width: 100%;
       }
@@ -125,6 +131,15 @@
         border-style: hidden;
         border-radius: 5px;
         padding: 20px;
+      }
+      #jo_box{
+        background-color: #C2EDB7;
+      }
+      #jalyn_box{
+        background-color: #EDE2B7;
+      }
+      #hein_box{
+        background-color: #B7EDE2;
       }
 
     </style>
@@ -154,7 +169,7 @@
 
   <center> <h1 id="intro" > Meet the Team! </h1> </center>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="jo_box">
     <div id="JoJo" class="ProfilePic">
     </div>
     <div class="our_name">
@@ -166,7 +181,7 @@
 
 <br><br>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="jalyn_box">
     <div id="Jalyn" class="ProfilePic">
     </div>
     <div class="our_name">
@@ -178,7 +193,7 @@
 
 <br><br>
 
-  <div id= "abt_us">
+  <div class= "abt_us" id="hein_box">
     <div id="Hein" class="ProfilePic">
     </div>
     <div class="our_name">
