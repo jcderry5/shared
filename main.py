@@ -60,8 +60,6 @@ class HomePage(webapp2.RequestHandler):
             # This line uses string templating to create an anchor (link) element.
             login_html_element = '<a href="%s">Sign in</a>' % login_url
             # This line puts that URL on screen in a clickable anchor elememt.
-            self.response.write('Please log in.<b>' + login_html_element)
-
             login_dict = {
                 "login_url" : login_url
             }
