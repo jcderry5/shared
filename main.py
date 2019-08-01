@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 import json
+import base64
 
 from google.appengine.api import images
 from google.appengine.api import users, urlfetch
@@ -25,7 +26,6 @@ class Image(webapp2.RequestHandler):
             self.response.out.write(h2j_user.profile_pic)
         else:
             self.response.out.write('No image')
-
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -90,7 +90,6 @@ class HomePage(webapp2.RequestHandler):
           # This line puts that URL on screen in a clickable anchor elememt.
           self.response.write('Please log in.<b>' + login_html_element)
 
-
 class QuizPage(webapp2.RequestHandler):
     def post(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
@@ -153,7 +152,6 @@ class QuizPage(webapp2.RequestHandler):
         quiz_template = jinja_env.get_template('templates/quiz.html')
         self.response.write(quiz_template.render())
 
-
 class VisualPage(webapp2.RequestHandler):
     def get(self):
         visual_template = jinja_env.get_template('templates/visual.html')
@@ -175,11 +173,14 @@ class ProfilePage(webapp2.RequestHandler):
              # If the query is successful, the variable will have a user in it, so the
 
              h2j_ls = " "
+             var_picture = " "
 
              if h2j_user:
                  h2j_ls = h2j_user.learning_style
                  h2j_fn = h2j_user.first_name
                  h2j_ln = h2j_user.last_name
+                 if h2j_user.profile_pic:
+                     var_picture = 'data:image/png;base64,' + base64.b64encode(h2j_user.profile_pic)
 
 
              profile_dict = {
@@ -188,7 +189,8 @@ class ProfilePage(webapp2.RequestHandler):
                 "first_name" : h2j_fn,
                 "last_name" : h2j_ln,
                 "email" : email_address,
-                "sign_out_link" : signout_url
+                "sign_out_link" : signout_url,
+                "picture" : var_picture
              }
              self.response.write(profile_template.render(profile_dict))
         else:
@@ -207,7 +209,6 @@ class AuditoryPage(webapp2.RequestHandler):
         # url = result_as_json[0]['url']
         self.response.write(aural_template.render())
 
-
 class WritingPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/writing.html')
@@ -216,7 +217,6 @@ class WritingPage(webapp2.RequestHandler):
 class AboutPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/about.html')
-        self.response.write(writing_template.render())
 
 
         user = users.get_current_user()
