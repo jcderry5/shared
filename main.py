@@ -79,7 +79,6 @@ class HomePage(webapp2.RequestHandler):
           # This line puts that URL on screen in a clickable anchor elememt.
           self.response.write('Please log in.<b>' + login_html_element)
 
-
 class QuizPage(webapp2.RequestHandler):
     def post(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
@@ -141,7 +140,6 @@ class QuizPage(webapp2.RequestHandler):
     def get(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
         self.response.write(quiz_template.render())
-
 
 class VisualPage(webapp2.RequestHandler):
     def get(self):
@@ -237,7 +235,6 @@ class AuditoryPage(webapp2.RequestHandler):
         else:
             self.response.write(aural_template.render())
 
-
 class WritingPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/writing.html')
@@ -264,7 +261,7 @@ class WritingPage(webapp2.RequestHandler):
              }
 
              self.response.write(writing_template.render(writing_dict))
-        else:    
+        else:
             self.response.write(writing_template.render())
 
 class AboutPage(webapp2.RequestHandler):
