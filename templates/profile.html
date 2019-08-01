@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Profile</title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
       body{
+        font-family: Product Sans Regular,serif;
+        background-image: url("images/papyrus.png");
         background-color: #EDC7B7;
+      }
+      h1{
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 2px 2px #CB849C;
       }
       .navigation_bar{
         background-color: #EEE2DC;
@@ -31,15 +44,14 @@
         color: white;
         background-color: #C16C89;
       }
-      #abt_us{
-        background-color: #8BE5FF;
-        display: block;
+      #abt_them{
+        background-color: #B7EDE2;
+        display: flex;
+        justify-content: center;
         border-radius: 25px;
-        padding: 25px 100px;
-        /* margin: 50px 300px; */
-        display:flex;
-        justify-content:flex-start;
+        padding: 25px 50px;
       }
+<<<<<<< HEAD
       #JoJo{
         background-size: cover;
         background-repeat: no-repeat;
@@ -49,22 +61,60 @@
         width: 100%;
         display:flex;
         justify-content:flex-start;
+=======
+      #profile_container{
+        border: 12px groove #72948D;
+        height: 35%;
+        width: 34%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+>>>>>>> 115f20cdb6c673a87fbac2a8e57cfc43e1215a79
       }
-      .ProfilePic{
-        border-radius: 50%;
-        width: 100px;
-        height: 300px;
+      #profile_img{
+        width: 100%;
+        height: 100%;
       }
-      .our_name{
+      #their_info{
+        height: 80%;
         font-size: 1em;
         width: auto;
+<<<<<<< HEAD
         margin-left: 30px;
 
+=======
+        flex-grow: 3;
+        margin-top: 10%;
       }
-
+      #signout_link{
+        text-align: center;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 5%;
+        display: block;
+        color: black;
+        width: 40%;
+        font-size: 20px;
+        margin-bottom: 10px;
+        background-color: #B7C2ED;
+        box-shadow: 2px 1px rgba(166,166,166,.7);
+        border-style: solid;
+        border-color: black;
+      }
+      #main_area{
+        background-color: #EDC7B7;
+        width: 60%;
+        height: 100%;
+        margin: 100px auto;
+        box-shadow: 10px 10px 5px #888;
+        border-style: hidden;
+        border-radius: 5px;
+        padding: 20px;
+>>>>>>> 115f20cdb6c673a87fbac2a8e57cfc43e1215a79
+      }
     </style>
   </head>
   <body>
+    <div id="main_area">
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -85,24 +135,30 @@
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
-<br><br><br><br>
 
-<div id= "abt_us">
-  <div id="JoJo" class="ProfilePic">
+<h1>Your Profile</h1>
+
+<div id= "abt_them">
+  <div id="profile_container">
+    <img id="profile_img" src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" alt="">
   </div>
-  <div class="our_name">
-    <h1 align="center"> First Name: {{first_name}}</h1>
-    <h1 align="center"> Last Name: {{last_name}}</h1>
-    <h1 align="center"> Email: {{email}}</h1>
-    <h1 align="center"> Learning Style: {{learning_style}}</h1>
-
+  <div id="their_info">
+    <h2 align="center"> First Name: {{first_name}}</h2>
+    <h2 align="center"> Last Name: {{last_name}}</h2>
+    <h2 align="center"> Email: {{email}}</h2>
+    <h2 align="center"> Learning Style: {{learning_style}}</h2>
+    <a id="signout_link" align="center" href={{sign_out_link}}>Sign Out</a>
   </div>
-</div>
 
+<<<<<<< HEAD
 <form action="/action_page.php">
   <input type="submit">
 </form>
+=======
+</div>
+>>>>>>> 115f20cdb6c673a87fbac2a8e57cfc43e1215a79
 
 
+</div>
   </body>
 </html>

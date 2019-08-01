@@ -116,6 +116,7 @@
     </style>
   </head>
   <body>
+{% if h2j_user %}
 
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
@@ -137,29 +138,34 @@
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
+
+{% endif %}
     <br><br><br>
 
     <div class="sign_in">
 
 
       {% if h2j_user %}
-        <h3 style="text-align: center; font-size: 25px;">
-          Thank you for registering!
+          <h2 id="sign_in" style="text-align: center;">
+            It's Learning Time!
+          </h2>
           <br>
-            <img src="https://c8.alamy.com/comp/XAP6FM/three-friends-one-girl-and-two-boys-posing-gesturing-smiling-XAP6FM.jpg" alt="">
-            <!-- <img src="https://im4.ezgif.com/tmp/ezgif-4-e3aa0742d45d.gif" alt=""> -->
-        </h3>
       {% elif login_url%}
         <h2 id="sign_in">
           Welcome to H2J
         </h2>
           <a id="google_login" href={{login_url}}>Click to Log in</a>
       {%else%}
+<<<<<<< HEAD
         <form enctype="multipart/form-data" method="post" action="/" style="text-align: center" autocomplete="off">
           <h3 class="titlebox">First Name:</h4>
+=======
+        <form method="post" action="/" style="text-align: center" autocomplete="off">
+          <h3 class="titlebox">First Name:</h3>
+>>>>>>> 115f20cdb6c673a87fbac2a8e57cfc43e1215a79
           <input class="textbox" type="text" name="first_name">
 
-          <h3 class="titlebox">Last Name:</h4>
+          <h3 class="titlebox">Last Name:</h3>
           <input class="textbox" type="text" name="last_name">
           <br> <br>
           <input type="file" name="pic" accept="image/*">
