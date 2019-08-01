@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 import json
+import base64
 
 from google.appengine.api import images
 from google.appengine.api import users, urlfetch
@@ -175,11 +176,14 @@ class ProfilePage(webapp2.RequestHandler):
              # If the query is successful, the variable will have a user in it, so the
 
              h2j_ls = " "
+             var_picture = " "
 
              if h2j_user:
                  h2j_ls = h2j_user.learning_style
                  h2j_fn = h2j_user.first_name
                  h2j_ln = h2j_user.last_name
+                 if h2j_user.profile_pic:
+                     var_picture = 'data:image/png;base64,' + base64.b64encode(h2j_user.profile_pic)
 
 
              profile_dict = {
@@ -188,7 +192,8 @@ class ProfilePage(webapp2.RequestHandler):
                 "first_name" : h2j_fn,
                 "last_name" : h2j_ln,
                 "email" : email_address,
-                "sign_out_link" : signout_url
+                "sign_out_link" : signout_url,
+                "picture" : var_picture
              }
              self.response.write(profile_template.render(profile_dict))
         else:
