@@ -1,0 +1,38 @@
+#title {
+  text-align: center;
+  color: #AC3B61;
+  font-family: Arial
+
+}
+.kewl {
+  background-color: #BAB2B5;
+  width: 200px;
+  height: 200px;
+  border: 15px outset #123C69;
+  padding: 50px;
+  margin: 20px;
+  color: black;
+  text-align: center;
+  font-size: 30px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.navigation_bar {
+  background-color: #AC3B61;
+  height: 100px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: #EDC7B7;
+}
