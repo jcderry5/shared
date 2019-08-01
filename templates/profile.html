@@ -31,15 +31,76 @@
         color: white;
         background-color: #C16C89;
       }
+      #abt_us{
+        background-color: #8BE5FF;
+        display: block;
+        border-radius: 25px;
+        padding: 25px 100px;
+        /* margin: 50px 300px; */
+        display:flex;
+        justify-content:flex-start;
+      }
+      #JoJo{
+        background-image: url("https://www.wolf.org/wp-content/uploads/2019/04/5D3_3666.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 130px 250px;
+        background-color: #BAB2B5;
+        border: 12px outset #123C69;
+        width: 100%;
+        display:flex;
+        justify-content:flex-start;
+      }
+      .ProfilePic{
+        border-radius: 50%;
+        width: 100px;
+        height: 300px;
+      }
+      .our_name{
+        font-size: 1em;
+        width: auto;
+        margin-left: 30px;
+        
+      }
+
     </style>
   </head>
   <body>
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
+
+      {%if learning_style == "Visual" %}
+      <h3><a href="/Visual">Learn</a></h3>
+
+      {% elif learning_style == "Auditory"%}
+      <h3><a href="/Auditory">Learn</a></h3>
+
+      {% elif learning_style == "Reading/Writing"%}
+      <h3><a href="/Writing">Learn</a></h3>
+
+      {%else%}
       <h3><a href="/Quiz">Quiz</a></h3>
+
+      {%endif%}
+
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
-    This is the profile html
+<br><br><br><br>
+
+<div id= "abt_us">
+  <div id="JoJo" class="ProfilePic">
+  </div>
+  <div class="our_name">
+    <h1 align="center"> First Name: {{first_name}}</h1>
+    <h1 align="center"> Last Name: {{last_name}}</h1>
+    <h1 align="center"> Email: {{email}}</h1>
+    <h1 align="center"> Learning Style: {{learning_style}}</h1>
+
+  </div>
+</div>
+
+
+
   </body>
 </html>
