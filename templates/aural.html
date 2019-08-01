@@ -103,7 +103,7 @@ select{
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
+<script defer type="text/javascript">
 
   $(document).ready(function(){
     $("#math,#science, #history").hide();
@@ -245,6 +245,10 @@ select{
 function() {
       $(this).stop().animate({ fontSize : '16px' });
 });
+$("#spot").click(function() {
+  $("#spot").hide();
+  $("#spoti").show();
+});
 
 
 });
@@ -266,13 +270,13 @@ function() {
       {% elif learning_style == "Reading/Writing"%}
       <h3><a href="/Writing">Learn</a></h3>
 
-      {%else%}
-      <h3><a href="/Quiz">Quiz</a></h3>
 
       {%endif%}
 
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
+      <iframe id="spoti" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8NTLI2TtZa6" width="250" height="75" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
     </div>
 
 <br><br><br><br>

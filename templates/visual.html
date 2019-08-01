@@ -6,7 +6,7 @@
     <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript">
+    <script defer type="text/javascript">
 
       $(document).ready(function(){
         $("#math,#science, #history").hide();
@@ -148,7 +148,10 @@
         function() {
           $(this).stop().animate({ fontSize : '16px' });
         });
-
+        $("#spot").click(function() {
+          $("#spot").hide();
+          $("#spoti").show();
+        });
 
     });
     </script>
@@ -263,13 +266,12 @@ select{
       {% elif learning_style == "Reading/Writing"%}
       <h3><a href="/Writing">Learn</a></h3>
 
-      {%else%}
-      <h3><a href="/Quiz">Quiz</a></h3>
-
       {%endif%}
 
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
+      <iframe id="spoti" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8NTLI2TtZa6" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
     </div>
 
 <h1 id="title" >You Got Visual Learning Style!</h1>
@@ -352,6 +354,7 @@ Learn History
 
 </div>
 <br>
+
 <div class="hey">
 
 <iframe class="calc" src="https://quizlet.com/256298800/flashcards/embed?i=gyp9h&x=1jj1" height="500" width="500px" style="border:0"></iframe>
