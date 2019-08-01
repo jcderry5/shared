@@ -236,8 +236,8 @@ class AboutPage(webapp2.RequestHandler):
                }
 
                self.response.write(writing_template.render(about_dict))
-        else:
-            self.response.write(writing_template.render())
+             else:
+                 self.response.write(writing_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
