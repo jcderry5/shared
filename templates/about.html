@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>About</title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
       body{
-        background-color: #EDC7B7;
+        background-image: url("images/papyrus.png");
+        font-family: Product Sans Regular,serif;
       }
       .navigation_bar{
         background-color: #EEE2DC;
@@ -45,8 +52,11 @@
       }
 
       #intro{
-        color: #AC3B61;
-        font-family: Arial
+        text-align: center;
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 2px 2px #CB849C;
       }
 
       .our_name{
@@ -106,10 +116,21 @@
         border: 12px outset #123C69;
         width: 100%;
       }
+      #main_area{
+        background-color: #EDC7B7;
+        width: 80%;
+        height: 100%;
+        margin: 100px auto;
+        box-shadow: 10px 10px 5px #888;
+        border-style: hidden;
+        border-radius: 5px;
+        padding: 20px;
+      }
 
     </style>
   </head>
   <body>
+    <div id="main_area">
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -131,7 +152,6 @@
       <h3><a href="/Profile">Profile</a></h3>
     </div>
 
-    <br><br><br><br><br>
   <center> <h1 id="intro" > Meet the Team! </h1> </center>
 
   <div id= "abt_us">
@@ -168,5 +188,6 @@
     </div>
 
   </div>
+</div>
   </body>
 </html>
