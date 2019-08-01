@@ -279,17 +279,19 @@ class AboutPage(webapp2.RequestHandler):
              h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
              # If the query is successful, the variable will have a user in it, so the
 
-        h2j_ls = " "
+             h2j_ls = ""
 
-        if h2j_user:
-            h2j_ls = h2j_user.learning_style
+             if h2j_user:
+               h2j_ls = h2j_user.learning_style
 
-        about_dict = {
-           "h2j_user" : h2j_user,
-           "learning_style" : h2j_ls
-        }
+               about_dict = {
+               "h2j_user" : h2j_user,
+               "learning_style" : h2j_ls
+               }
 
-        self.response.write(writing_template.render(about_dict))
+               self.response.write(writing_template.render(about_dict))
+        else:
+            self.response.write(writing_template.render())
 
 
 
