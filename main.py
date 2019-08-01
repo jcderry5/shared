@@ -165,6 +165,40 @@ class ProfilePage(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template('templates/profile.html')
 
+<<<<<<< HEAD
+=======
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_url = users.create_logout_url('/')
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = " "
+
+             if h2j_user:
+                 h2j_ls = h2j_user.learning_style
+                 h2j_fn = h2j_user.first_name
+                 h2j_ln = h2j_user.last_name
+
+
+             profile_dict = {
+                "h2j_user" : h2j_user,
+                "learning_style" : h2j_ls,
+                "first_name" : h2j_fn,
+                "last_name" : h2j_ln,
+                "email" : email_address,
+                "sign_out_link" : signout_url
+             }
+             self.response.write(profile_template.render(profile_dict))
+        else:
+            self.response.write(profile_template.render())
+>>>>>>> b4a7dca110331654b1bbf827d6da4446992ea500
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
@@ -189,6 +223,35 @@ class AboutPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/about.html')
         self.response.write(writing_template.render())
+<<<<<<< HEAD
+=======
+
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = ""
+
+             if h2j_user:
+               h2j_ls = h2j_user.learning_style
+
+               about_dict = {
+               "h2j_user" : h2j_user,
+               "learning_style" : h2j_ls
+               }
+
+               self.response.write(writing_template.render(about_dict))
+        else:
+            self.response.write(writing_template.render())
+>>>>>>> b4a7dca110331654b1bbf827d6da4446992ea500
 
 
 
