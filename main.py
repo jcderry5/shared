@@ -168,7 +168,8 @@ class VisualPage(webapp2.RequestHandler):
                 "learning_style" : h2j_ls
              }
              self.response.write(visual_template.render(visual_dict))
-        self.response.write(visual_template.render())
+        else:
+            self.response.write(visual_template.render())
 
 class ProfilePage(webapp2.RequestHandler):
     def get(self):
@@ -201,7 +202,8 @@ class ProfilePage(webapp2.RequestHandler):
                 "email" : email_address
              }
              self.response.write(profile_template.render(profile_dict))
-        self.response.write(profile_template.render())
+        else:
+            self.response.write(profile_template.render())
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
@@ -262,7 +264,8 @@ class WritingPage(webapp2.RequestHandler):
              }
 
              self.response.write(writing_template.render(writing_dict))
-        self.response.write(writing_template.render())
+        else:    
+            self.response.write(writing_template.render())
 
 class AboutPage(webapp2.RequestHandler):
     def get(self):
