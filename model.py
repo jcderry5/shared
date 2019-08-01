@@ -5,3 +5,4 @@ class H2JUser(ndb.Model):
   email = ndb.StringProperty()
   first_name = ndb.StringProperty()
   last_name = ndb.StringProperty()
+  profile_pic = ndb.BlobProperty()

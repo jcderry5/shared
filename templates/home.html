@@ -155,13 +155,14 @@
         </h2>
           <a id="google_login" href={{login_url}}>Click to Log in</a>
       {%else%}
-        <form method="post" action="/" style="text-align: center" autocomplete="off">
+        <form enctype="multipart/form-data" method="post" action="/" style="text-align: center" autocomplete="off">
           <h3 class="titlebox">First Name:</h4>
           <input class="textbox" type="text" name="first_name">
 
           <h3 class="titlebox">Last Name:</h4>
           <input class="textbox" type="text" name="last_name">
           <br> <br>
+          <input type="file" name="pic" accept="image/*">
           <input class="button" type="submit">
         </form><br><br>
       {%endif%}
