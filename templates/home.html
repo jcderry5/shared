@@ -116,7 +116,7 @@
     </style>
   </head>
   <body>
-
+{% if h2j_user != " " %}
     <div class="navigation_bar">
       <h3><a href="/">Home Page</a></h3>
 
@@ -137,6 +137,7 @@
       <h3><a href="/About">About</a></h3>
       <h3><a href="/Profile">Profile</a></h3>
     </div>
+    {% endif %}
     <br><br><br>
 
     <div class="sign_in">
@@ -156,10 +157,10 @@
           <a id="google_login" href={{login_url}}>Click to Log in</a>
       {%else%}
         <form method="post" action="/" style="text-align: center" autocomplete="off">
-          <h3 class="titlebox">First Name:</h4>
+          <h3 class="titlebox">First Name:</h3>
           <input class="textbox" type="text" name="first_name">
 
-          <h3 class="titlebox">Last Name:</h4>
+          <h3 class="titlebox">Last Name:</h3>
           <input class="textbox" type="text" name="last_name">
           <br> <br>
           <input class="button" type="submit">
