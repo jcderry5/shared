@@ -165,9 +165,6 @@ class ProfilePage(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template('templates/profile.html')
 
-<<<<<<< HEAD
-=======
-
         user = users.get_current_user()
         if user:
              # Create the sign out link (for later use).
@@ -198,7 +195,6 @@ class ProfilePage(webapp2.RequestHandler):
              self.response.write(profile_template.render(profile_dict))
         else:
             self.response.write(profile_template.render())
->>>>>>> b4a7dca110331654b1bbf827d6da4446992ea500
 
 class LoadDataHandler(webapp2.RequestHandler):
     def get(self):
@@ -223,8 +219,6 @@ class AboutPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/about.html')
         self.response.write(writing_template.render())
-<<<<<<< HEAD
-=======
 
 
         user = users.get_current_user()
@@ -251,11 +245,6 @@ class AboutPage(webapp2.RequestHandler):
                self.response.write(writing_template.render(about_dict))
         else:
             self.response.write(writing_template.render())
->>>>>>> b4a7dca110331654b1bbf827d6da4446992ea500
-
-
-
-
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
