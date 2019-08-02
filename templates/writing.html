@@ -134,6 +134,56 @@ select{
   margin-right: 10px;
   border-color: #89A6B2;
 }
+/* Dropdown Button */
+.dropbtn {
+  background-color: #EEE2DC;
+  /* color: white; */
+  /* text-decoration: none; */
+  color: #AC3B61;
+  border: none;
+  /* text-shadow: 0.5px 0.5px; */
+  /* padding: 10px; */
+  /* border: 2px solid #AC3B61; */
+  /* border-radius: 10px; */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  /* min-width: 160px; */
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  text-decoration: none;
+  color: #AC3B61;
+  text-shadow: 0.5px 0.5px;
+  padding: 10px;
+  /* border: 2px solid #AC3B61; */
+  border-radius: 10px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -306,6 +356,19 @@ select{
       {%endif%}
 
       <h3><a href="/About">About</a></h3>
+
+    <h3>  <div class="dropdown">
+        <button class="dropbtn">About</button>
+        <div class="dropdown-content">
+          <a href="/About">Who We Are</a>
+          <a href="/About">Mission Statement</a>
+        </div>
+      </div>
+    </h3>
+
+
+
+
       <h3><a href="/Profile">Profile</a></h3>
       <h3 id="spot"><a> Play Music?</a></h3>
 
