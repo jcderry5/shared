@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <style media="screen">
+      @font-face {
+        font-family: Product Sans Regular;
+        src: url('fonts/google-sans-cufonfonts/ProductSans-Black.ttf');
+      }
+      body{
+        background-image: url("images/papyrus.png");
+        font-family: Product Sans Regular,serif;
+      }
+      .navigation_bar{
+        background-color: #EEE2DC;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 0px 2px #94888C;
+        opacity: .95;
+
+      }
+      a{
+        text-decoration: none;
+        color: #AC3B61;
+        text-shadow: 0.5px 0.5px;
+        padding: 10px;
+        /* border: 2px solid #AC3B61; */
+        border-radius: 10px;
+      }
+      a.linked:hover{
+        color: white;
+        background-color: #C16C89;
+      }
+
+      #h1{
+        text-align: center;
+        color: #AC3B61;
+        font-family: Arial
+      }
+      #main_area{
+        background-color: #EDC7B7;
+        width: 80%;
+        height: 100%;
+        margin: 100px auto;
+        box-shadow: 10px 10px 5px #888;
+        border-style: hidden;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      #intro{
+        text-align: center;
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 2px 2px #CB849C;
+      }
+      svg{
+        height: 500px;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main_area">
+      <div class="navigation_bar">
+        <h3><a class="linked" href="/">Home Page</a></h3>
+
+        {%if learning_style == "Visual" %}
+        <h3><a class="linked" href="/Visual">Learn</a></h3>
+
+        {% elif learning_style == "Auditory"%}
+        <h3><a class="linked" href="/Auditory">Learn</a></h3>
+
+        {% elif learning_style == "Reading/Writing"%}
+        <h3><a class="linked" href="/Writing">Learn</a></h3>
+
+        {%else%}
+        <h3><a class="linked" href="/Quiz">Quiz</a></h3>
+
+        {%endif%}
+
+        <h3><a class="linked" href="/About">About</a></h3>
+        <h3><a class="linked" href="/Profile">Profile</a></h3>
+      </div>
+      <center> <h1 id="intro" > Core Mission </h1> </center>
+      <p style="text-align: center">Project H2J's mission is to help students identify their learning style <br> so that they are able to receive and process the information they are studying in the most efficient way.</p>
+      <!-- <svg height="20px" width="20px" viewBox="0 0 20 20">
+        <circle r="10" cx="10" cy="10" fill="white"/>
+        <circle r="5" cx="10" cy="10" fill="bisque"
+                stroke="tomato"
+                stroke-dasharray="1 3"/> -->
+      <!-- </svg> -->
+      <img src="images/chart.svg" alt="">
+    </div>
+
+  </body>
+</html>

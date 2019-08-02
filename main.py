@@ -251,6 +251,10 @@ class AboutPage(webapp2.RequestHandler):
                self.response.write(writing_template.render(about_dict))
              else:
                  self.response.write(writing_template.render())
+class StatisticsPage(webapp2.RequestHandler):
+    def get(self):
+        stats_template = jinja_env.get_template('templates/stats.html')
+        self.response.write(stats_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
@@ -262,5 +266,6 @@ app = webapp2.WSGIApplication([
     ('/Auditory', AuditoryPage),
     ('/Writing', WritingPage),
     ('/About', AboutPage),
+    ('/Statistics', StatisticsPage)
 
 ], debug=True)
