@@ -86,18 +86,20 @@
   font-size: 20px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   box-shadow: 0px 2px #94888C;
   opacity: .95;
 }
-a{
+a.nav{
   text-decoration: none;
   color: #AC3B61;
   text-shadow: 0.5px 0.5px;
   padding: 10px;
+  font-size: 20px;
   /* border: 2px solid #AC3B61; */
   border-radius: 10px;
 }
-a:hover{
+a.nav:hover{
   color: white;
   background-color: #C16C89;
 }
@@ -137,14 +139,15 @@ select{
 /* Dropdown Button */
 .dropbtn {
   background-color: #EEE2DC;
-  /* color: white; */
-  /* text-decoration: none; */
   color: #AC3B61;
   border: none;
-  /* text-shadow: 0.5px 0.5px; */
-  /* padding: 10px; */
+  text-decoration: none;
+  text-shadow: 0.5px 0.5px;
+  padding: 10px;
+  font-size: 20px;
   /* border: 2px solid #AC3B61; */
-  /* border-radius: 10px; */
+  border-radius: 10px;
+  font-family: Product Sans Regular,serif;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -158,9 +161,16 @@ select{
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  /* min-width: 160px; */
-  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  color: black;
+  font-size: 12px;
   z-index: 1;
+  width: 175px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 10px;
+  height: 50px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 /* Links inside the dropdown */
@@ -168,20 +178,29 @@ select{
   text-decoration: none;
   color: #AC3B61;
   text-shadow: 0.5px 0.5px;
-  padding: 10px;
   /* border: 2px solid #AC3B61; */
   border-radius: 10px;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover{
+  color: white;
+  background-color: rgba(193, 108, 137, .6)
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+  background-color: #C16C89;
+}
 
+.dropdown-content_links{
+  padding: 10px;
+}
 
 
 
@@ -341,27 +360,28 @@ select{
   <body bgcolor="#EDC7B7">
   <div id="main_area">
     <div class="navigation_bar">
-      <h3><a href="/">Home Page</a></h3>
+      <h3><a class="nav" href="/">Home Page</a></h3>
 
       {%if learning_style == "Visual" %}
-      <h3><a href="/Visual">Learn</a></h3>
+      <h3><a class="nav" href="/Visual">Learn</a></h3>
 
       {% elif learning_style == "Auditory"%}
-      <h3><a href="/Auditory">Learn</a></h3>
+      <h3><a class="nav" href="/Auditory">Learn</a></h3>
 
       {% elif learning_style == "Reading/Writing"%}
-      <h3><a href="/Writing">Learn</a></h3>
-
+      <h3><a class="nav" href="/Writing">Learn</a></h3>
 
       {%endif%}
 
-      <h3><a href="/About">About</a></h3>
+      <!-- <h3><a class="nav" href="/About">About</a></h3> -->
 
-    <h3>  <div class="dropdown">
+    <h3><div class="dropdown">
         <button class="dropbtn">About</button>
         <div class="dropdown-content">
-          <a href="/About">Who We Are</a>
-          <a href="/About">Mission Statement</a>
+          <a class="dropdown-content_links" href="/About">Who We Are</a>
+          <br><br>
+          <a class="dropdown-content_links" href="/Statistics">Mission Statement</a>
+          <br>
         </div>
       </div>
     </h3>
@@ -369,8 +389,8 @@ select{
 
 
 
-      <h3><a href="/Profile">Profile</a></h3>
-      <h3 id="spot"><a> Play Music?</a></h3>
+      <h3><a  class="nav" href="/Profile">Profile</a></h3>
+      <h3  class="nav" id="spot"><a class="nav"> Play Music?</a></h3>
 
       <iframe id="spoti" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8NTLI2TtZa6" width="250" height="75" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
@@ -390,12 +410,6 @@ select{
 <p align="center"> Be better with grammar because they read habitually and frequently </p>
 
 <p align="center"> Be keen on using quotations, manuals, dictionaries, lists, the internet, logs, journals, etc. for the input and output of information </p>
-
-
-
-
-
-
 
 </p>
 

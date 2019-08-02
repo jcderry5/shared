@@ -29,8 +29,22 @@
         font-size: 20px;
         display: flex;
         justify-content: space-around;
+        align-items: center;
         box-shadow: 0px 2px #94888C;
         opacity: .95;
+      }
+      a.nav{
+        text-decoration: none;
+        color: #AC3B61;
+        text-shadow: 0.5px 0.5px;
+        padding: 10px;
+        font-size: 20px;
+        /* border: 2px solid #AC3B61; */
+        border-radius: 10px;
+      }
+      a.nav:hover{
+        color: white;
+        background-color: #C16C89;
       }
       a{
         text-decoration: none;
@@ -50,6 +64,7 @@
         justify-content: center;
         border-radius: 25px;
         padding: 25px 50px;
+        box-shadow: 5px 5px 1px #888888;
       }
       #JoJo{
         background-size: cover;
@@ -107,30 +122,111 @@
         border-radius: 5px;
         padding: 20px;
       }
+      /* Dropdown Button */
+      .dropbtn {
+        background-color: #EEE2DC;
+        color: #AC3B61;
+        border: none;
+        text-decoration: none;
+        text-shadow: 0.5px 0.5px;
+        padding: 10px;
+        font-size: 20px;
+        /* border: 2px solid #AC3B61; */
+        border-radius: 10px;
+        font-family: Product Sans Regular,serif;
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        color: black;
+        font-size: 12px;
+        z-index: 1;
+        width: 175px;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 10px;
+        height: 50px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        text-decoration: none;
+        color: #AC3B61;
+        text-shadow: 0.5px 0.5px;
+        /* border: 2px solid #AC3B61; */
+        border-radius: 10px;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover{
+        color: white;
+        background-color: rgba(193, 108, 137, .6)
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdown:hover .dropbtn {
+        background-color: #C16C89;
+      }
+
+      .dropdown-content_links{
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
     <div id="main_area">
-    <div class="navigation_bar">
-      <h3><a href="/">Home Page</a></h3>
+      <div class="navigation_bar">
+        <h3><a class="nav" href="/">Home Page</a></h3>
 
-      {%if learning_style == "Visual" %}
-      <h3><a href="/Visual">Learn</a></h3>
+        {%if learning_style == "Visual" %}
+        <h3><a class="nav" href="/Visual">Learn</a></h3>
 
-      {% elif learning_style == "Auditory"%}
-      <h3><a href="/Auditory">Learn</a></h3>
+        {% elif learning_style == "Auditory"%}
+        <h3><a class="nav" href="/Auditory">Learn</a></h3>
 
-      {% elif learning_style == "Reading/Writing"%}
-      <h3><a href="/Writing">Learn</a></h3>
+        {% elif learning_style == "Reading/Writing"%}
+        <h3><a class="nav" href="/Writing">Learn</a></h3>
 
-      {%else%}
-      <h3><a href="/Quiz">Quiz</a></h3>
+        {%endif%}
 
-      {%endif%}
+        <!-- <h3><a class="nav" href="/About">About</a></h3> -->
 
-      <h3><a href="/About">About</a></h3>
-      <h3><a href="/Profile">Profile</a></h3>
-    </div>
+      <h3><div class="dropdown">
+          <button class="dropbtn">About</button>
+          <div class="dropdown-content">
+            <a class="dropdown-content_links" href="/About">Who We Are</a>
+            <br><br>
+            <a class="dropdown-content_links" href="/Statistics">Mission Statement</a>
+            <br>
+          </div>
+        </div>
+      </h3>
+
+
+
+
+        <h3><a  class="nav" href="/Profile">Profile</a></h3>
+        <h3  class="nav" id="spot"><a class="nav"> Play Music?</a></h3>
+
+        <iframe id="spoti" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8NTLI2TtZa6" width="250" height="75" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+      </div>
 
 <h1>Your Profile</h1>
 

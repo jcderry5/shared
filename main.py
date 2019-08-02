@@ -161,7 +161,31 @@ class QuizPage(webapp2.RequestHandler):
 class VisualPage(webapp2.RequestHandler):
     def get(self):
         visual_template = jinja_env.get_template('templates/visual.html')
-        self.response.write(visual_template.render())
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = ""
+
+             if h2j_user:
+               h2j_ls = h2j_user.learning_style
+
+               visual_dict = {
+               "h2j_user" : h2j_user,
+               "learning_style" : h2j_ls
+               }
+
+               self.response.write(visual_template.render(visual_dict))
+             else:
+                 self.response.write(visual_template.render())
 
 class ProfilePage(webapp2.RequestHandler):
     def get(self):
@@ -211,20 +235,64 @@ class LoadDataHandler(webapp2.RequestHandler):
 class AuditoryPage(webapp2.RequestHandler):
     def get(self):
         aural_template = jinja_env.get_template('templates/aural.html')
-        # khan= 'http://www.khanacademy.org/api/v1/topictree'
-        # result = urlfetch.fetch(khan).content
-        # result_as_json = json.loads(result)
-        # url = result_as_json[0]['url']
-        self.response.write(aural_template.render())
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = ""
+
+             if h2j_user:
+               h2j_ls = h2j_user.learning_style
+
+               aural_dict = {
+               "h2j_user" : h2j_user,
+               "learning_style" : h2j_ls
+               }
+
+               self.response.write(aural_template.render(aural_dict))
+             else:
+                 self.response.write(aural_template.render())
 
 class WritingPage(webapp2.RequestHandler):
     def get(self):
         writing_template = jinja_env.get_template('templates/writing.html')
-        self.response.write(writing_template.render())
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = ""
+
+             if h2j_user:
+               h2j_ls = h2j_user.learning_style
+
+               writing_dict = {
+               "h2j_user" : h2j_user,
+               "learning_style" : h2j_ls
+               }
+
+               self.response.write(writing_template.render(writing_dict))
+             else:
+                 self.response.write(writing_template.render())
 
 class AboutPage(webapp2.RequestHandler):
     def get(self):
-        writing_template = jinja_env.get_template('templates/about.html')
+        about_template = jinja_env.get_template('templates/about.html')
 
 
         user = users.get_current_user()
@@ -248,13 +316,38 @@ class AboutPage(webapp2.RequestHandler):
                "learning_style" : h2j_ls
                }
 
-               self.response.write(writing_template.render(about_dict))
+               self.response.write(about_template.render(about_dict))
              else:
                  self.response.write(writing_template.render())
+
 class StatisticsPage(webapp2.RequestHandler):
     def get(self):
         stats_template = jinja_env.get_template('templates/stats.html')
-        self.response.write(stats_template.render())
+
+        user = users.get_current_user()
+        if user:
+             # Create the sign out link (for later use).
+             signout_link_html = '<a href="%s">sign out</a>' % (users.create_logout_url('/'))
+             # If the user is logged in, get their email address.
+             email_address = user.nickname()
+             # Then query Datastore to see if a user with this email has registered as
+             # a H2JUser before.
+             h2j_user = H2JUser.query().filter(H2JUser.email == email_address).get()
+             # If the query is successful, the variable will have a user in it, so the
+
+             h2j_ls = ""
+
+             if h2j_user:
+                h2j_ls = h2j_user.learning_style
+
+                stats_dict = {
+                "h2j_user" : h2j_user,
+                "learning_style" : h2j_ls
+                }
+
+                self.response.write(stats_template.render(stats_dict))
+             else:
+                self.response.write(about_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
