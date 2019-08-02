@@ -3,6 +3,7 @@ import jinja2
 import os
 import json
 import base64
+import time
 
 from google.appengine.api import images
 from google.appengine.api import users, urlfetch
@@ -156,6 +157,8 @@ class QuizPage(webapp2.RequestHandler):
 
     def get(self):
         quiz_template = jinja_env.get_template('templates/quiz.html')
+
+
         self.response.write(quiz_template.render())
 
 class VisualPage(webapp2.RequestHandler):
@@ -279,15 +282,16 @@ class WritingPage(webapp2.RequestHandler):
              h2j_ls = ""
 
              if h2j_user:
-               h2j_ls = h2j_user.learning_style
+                 h2j_ls = h2j_user.learning_style
 
-               writing_dict = {
-               "h2j_user" : h2j_user,
-               "learning_style" : h2j_ls
-               }
-
-               self.response.write(writing_template.render(writing_dict))
+                 writing_dict = {
+                 "h2j_user" : h2j_user,
+                 "learning_style" : h2j_ls
+                 }
+                 time.sleep(0.1)
+                 self.response.write(writing_template.render(writing_dict))
              else:
+                 time.sleep(0.1)
                  self.response.write(writing_template.render())
 
 class AboutPage(webapp2.RequestHandler):
